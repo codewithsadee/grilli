@@ -533,8 +533,6 @@ body.nav-active { overflow: hidden; }
   place-content: center;
   justify-items: center;
   transition: var(--transition-2);
-  
-  display: none;
 }
 
 .preload > * { transition: var(--transition-1); }
