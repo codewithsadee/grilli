@@ -1,16 +1,4 @@
 /*-----------------------------------*\
-  #index.css
-\*-----------------------------------*/
-
-/**
- * copyright 2022 codewithsadee
- */
-
-
-
-
-
-/*-----------------------------------*\
   #CUSTOM PROPERTY
 \*-----------------------------------*/
 
@@ -20,7 +8,7 @@
    * COLORS
    */
 
-  --gold-crayola: hsl(38, 61%, 73%);
+  --gold-crayola: #d6a553;
   --quick-silver: hsla(0, 0%, 65%, 1);
   --davys-grey: hsla(30, 3%, 34%, 1);
   --smoky-black-1: hsla(40, 12%, 5%, 1);
@@ -255,10 +243,6 @@ body.nav-active { overflow: hidden; }
 
 .label-2 { font-size: var(--fontSize-label-2); }
 
-
-
-
-
 /*-----------------------------------*\
   #REUSED STYLE
 \*-----------------------------------*/
@@ -338,13 +322,22 @@ body.nav-active { overflow: hidden; }
   text-transform: uppercase;
   letter-spacing: var(--letterSpacing-5);
   max-width: max-content;
-  border: 2px solid var(--gold-crayola);
-  padding: 12px 45px;
+  border: 1px solid var(--gold-crayola);
+  border-radius: 10px;
+  padding: 12px;
   overflow: hidden;
-  z-index: 1;
+  font-weight: bolder;
+  background-color:#d6a6538e ;
+  color: var(--white);
+  /* z-index: 1; */
 }
 
-.btn::before {
+.btn:hover{
+  font-weight: 1000;
+  color:var(--black);
+}
+
+/* .btn::before {
   content: "";
   position: absolute;
   bottom: 100%;
@@ -356,36 +349,31 @@ body.nav-active { overflow: hidden; }
   background-color: var(--gold-crayola);
   transition: var(--transition-2);
   z-index: -1;
-}
+} */
 
-.btn .text { transition: var(--transition-1); }
+/* .btn .text { transition: var(--transition-1); } */
 
-.btn .text-2 {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  min-width: max-content;
-  color: var(--smoky-black-1);
-}
+/* .btn .text-1 {
 
-.btn:is(:hover, :focus-visible)::before { bottom: -50%; }
+} */
+
+/* .btn:is(:hover, :focus-visible)::before { bottom: -50%; }
 
 .btn:is(:hover, :focus-visible) .text-1 { transform: translateY(-40px); }
 
 .btn:is(:hover, :focus-visible) .text-2 {
   top: 50%;
   transform: translate(-50%, -50%);
-}
+} */
 
-.btn-secondary {
+/* .btn-secondary {
   background-color: var(--gold-crayola);
   color: var(--black);
-}
+} */
 
-.btn-secondary::before { background-color: var(--smoky-black-1); }
+/* .btn-secondary::before { background-color: var(--smoky-black-1); } */
 
-.btn-secondary .text-2 { color: var(--white); }
+/* .btn-secondary .text-2 { color: var(--white); } */
 
 .has-before,
 .has-after {
@@ -583,17 +571,6 @@ body.nav-active { overflow: hidden; }
 
 
 
-
-/*-----------------------------------*\
-  #TOPBAR
-\*-----------------------------------*/
-
-.topbar { display: none; }
-
-
-
-
-
 /*-----------------------------------*\
   #HEADER
 \*-----------------------------------*/
@@ -601,27 +578,29 @@ body.nav-active { overflow: hidden; }
 .header .btn { display: none; }
 
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: transparent;
-  padding-block: 40px;
+  position:fixed;
+  width:100%;
+  background-color:black;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom:10px;
+
   z-index: 4;
-  border-block-end: 1px solid transparent;
   transition: var(--transition-1);
 }
 
 .header.active {
-  padding-block: 20px;
-  background-color: var(--eerie-black-4);
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: black;
   border-color: var(--black-alpha-15);
 }
 
-.header.hide {
+/* .header.hide {
   transform: translateY(-100%);
   transition-delay: 250ms;
-}
+} */
 
 .header .container {
   padding-inline: 20px;
@@ -872,6 +851,8 @@ body.nav-active { overflow: hidden; }
   animation: sliderReveal 1s ease forwards;
 }
 
+
+
 @keyframes sliderReveal {
   0% {
     transform: translateY(30px);
@@ -904,7 +885,7 @@ body.nav-active { overflow: hidden; }
 
 .service .section-text { margin-block-end: 40px; }
 
-.service-card { overflow: hidden; }
+.service-card { overflow: hidden; margin-top:20px; border-radius:20px; }
 
 .service-card .has-before {
   padding-block: 30px;
@@ -1520,9 +1501,6 @@ textarea.input-field {
   /**
    * HEADER
    */
-
-  .header { top: 51px; }
-
   .header.active { top: 0; }
 
   .header .btn {
