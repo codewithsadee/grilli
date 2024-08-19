@@ -324,16 +324,17 @@ body.nav-active { overflow: hidden; }
   max-width: max-content;
   border: 1px solid var(--gold-crayola);
   border-radius: 10px;
-  margin:20px;
   padding: 12px;
   overflow: hidden;
+  font-weight: bolder;
+  background-color:#d6a6538e ;
+  color: var(--white);
   /* z-index: 1; */
 }
 
 .btn:hover{
-  color:var(--white);
-  
-  transform:scale(1.1)
+  font-weight: 1000;
+  color:var(--black);
 }
 
 /* .btn::before {
@@ -352,13 +353,8 @@ body.nav-active { overflow: hidden; }
 
 /* .btn .text { transition: var(--transition-1); } */
 
-/* .btn .text-2 {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  min-width: max-content;
-  color: var(--smoky-black-1);
+/* .btn .text-1 {
+
 } */
 
 /* .btn:is(:hover, :focus-visible)::before { bottom: -50%; }
@@ -587,6 +583,9 @@ body.nav-active { overflow: hidden; }
   background-color:black;
   padding-left: 40px;
   padding-right: 40px;
+  padding-top: 10px;
+  padding-bottom:10px;
+
   z-index: 4;
   transition: var(--transition-1);
 }
@@ -852,6 +851,8 @@ body.nav-active { overflow: hidden; }
   animation: sliderReveal 1s ease forwards;
 }
 
+
+
 @keyframes sliderReveal {
   0% {
     transform: translateY(30px);
@@ -884,7 +885,7 @@ body.nav-active { overflow: hidden; }
 
 .service .section-text { margin-block-end: 40px; }
 
-.service-card { overflow: hidden; }
+.service-card { overflow: hidden; margin-top:20px; border-radius:20px; }
 
 .service-card .has-before {
   padding-block: 30px;
@@ -1500,9 +1501,6 @@ textarea.input-field {
   /**
    * HEADER
    */
-
-  .header { top: 51px; }
-
   .header.active { top: 0; }
 
   .header .btn {
