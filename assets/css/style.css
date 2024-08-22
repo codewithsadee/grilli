@@ -217,6 +217,8 @@ body.nav-active { overflow: hidden; }
   line-height: var(--lineHeight-6);
 }
 
+.headline-3 { font-size:20px; }
+
 .title-1 { font-size: var(--fontSize-title-1); }
 
 .title-2 { font-size: var(--fontSize-title-2); }
