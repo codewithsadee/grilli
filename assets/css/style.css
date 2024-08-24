@@ -998,7 +998,12 @@ body.nav-active { overflow: hidden; }
   margin-inline: auto;
   margin-block-end: 12px;
 }
+.special-dish-banner .img-cover{
+  width:full;
+  height:1000px;
+  
 
+}
 .special-dish .section-text { margin-block: 16px 40px; }
 
 .special-dish-content .wrapper {
@@ -2120,4 +2125,9 @@ textarea.input-field {
     left: 0;
   }
 
+}
+
+.card-banner {
+  width: 100px;
+  height: 100px;
 }
