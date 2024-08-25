@@ -1705,6 +1705,17 @@ textarea.input-field {
 
   .footer-brand { grid-column: 1 / 3; }
 
+
+}
+
+.footer{
+
+  background-color: black;
+}
+
+.footer-bottom{
+
+  padding: 40px;
 }
 
 
@@ -1873,6 +1884,7 @@ textarea.input-field {
   }
 
   .footer-list:last-child { order: 2; }
+
 
 }
 
@@ -2126,7 +2138,6 @@ textarea.input-field {
   }
 
 }
-
 .menu .card-banner {
   width: 100px;
   height: 100px;
