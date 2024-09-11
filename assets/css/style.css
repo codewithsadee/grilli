@@ -2004,11 +2004,68 @@ textarea.input-field {
    * SERVICE
    */
 
-  .service .grid-list { gap: 150px; }
+  /**
+ * SERVICE
+ */
 
-  .service .grid-list li:nth-child(2n+1) { transform: translateY(-160px); }
+.service .grid-list { gap: 150px; }
 
-  .service .section-text { margin-block-end: 75px; }
+.service .grid-list li:nth-child(2n+1) { transform: translateY(-160px); }
+
+.service .section-text { margin-block-end: 75px; }
+
+/* Styling for the slider container */
+.slider-container {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+/* Styling for individual slides */
+.slide {
+  display: none;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Active slide */
+.active {
+  display: block;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  z-index: 100; /* Ensure the buttons are above other elements */
+}
+
+/* Position buttons */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add background color to buttons */
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 
 
 

@@ -166,5 +166,44 @@ window.addEventListener("mousemove", function (event) {
     y = y * Number(parallaxItems[i].dataset.parallaxSpeed);
     parallaxItems[i].style.transform = `translate3d(${x}px, ${y}px, 0px)`;
   }
+  
 
+});
+
+'use strict';
+
+/**
+ * SLIDER FOR SERVICES SECTION - AUTO SLIDE VERSION
+ */
+
+// Select all the slides
+const serviceSlides = document.querySelectorAll('.slide');
+// Track the current active slide index
+let currentServiceSlide = 0;
+const autoSlideDuration = 5000; // Time interval for auto-slide (in milliseconds)
+let serviceAutoSlideInterval; // Renamed variable
+
+// Function to change the slide
+function changeServiceSlide(direction = 1) {
+  // Remove active class from the current slide
+  serviceSlides[currentServiceSlide].classList.remove('active');
+
+  // Update the current slide index
+  currentServiceSlide = (currentServiceSlide + direction + serviceSlides.length) % serviceSlides.length;
+
+  // Add active class to the new current slide
+  serviceSlides[currentServiceSlide].classList.add('active');
+}
+
+// Function to start automatic sliding
+function startAutoSlide() {
+  serviceAutoSlideInterval = setInterval(() => {
+    changeServiceSlide(1); // Move to the next slide
+  }, autoSlideDuration);
+}
+
+// Initialize the first slide as active and start auto slide
+document.addEventListener('DOMContentLoaded', () => {
+  serviceSlides[0].classList.add('active'); // Set the first slide active
+  startAutoSlide(); // Start the automatic slide
 });
