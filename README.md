@@ -1,54 +1,38 @@
-<div align="center">
-  
-  ![GitHub repo size](https://img.shields.io/github/repo-size/codewithsadee/grilli)
-  ![GitHub stars](https://img.shields.io/github/stars/codewithsadee/grilli?style=social)
-  ![GitHub forks](https://img.shields.io/github/forks/codewithsadee/grilli?style=social)
-[![Twitter Follow](https://img.shields.io/twitter/follow/codewithsadee_?style=social)](https://twitter.com/intent/follow?screen_name=codewithsadee_)
-  [![YouTube Video Views](https://img.shields.io/youtube/views/CjVGp5kGHxA?style=social)](https://youtu.be/CjVGp5kGHxA)
+# sv
 
-  <br />
-  <br />
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-  <h2 align="center">Grilli - Restaurant Website</h2>
+## Creating a project
 
-  Grilli is a fully responsive restaurant website, <br />Responsive for all devices, build using HTML, CSS, and JavaScript.
-
-  <a href="https://codewithsadee.github.io/grilli/"><strong>➥ Live Demo</strong></a>
-
-</div>
-
-<br />
-
-### Demo Screeshots
-
-![Grilli Desktop Demo](./readme-images/desktop.png "Desktop Demo")
-
-### Prerequisites
-
-Before you begin, ensure you have met the following requirements:
-
-* [Git](https://git-scm.com/downloads "Download Git") must be installed on your operating system.
-
-### Run Locally
-
-To run **Grilli** locally, run this command on your git bash:
-
-Linux and macOS:
+If you're seeing this, you've probably already done this step. Congrats!
 
 ```bash
-sudo git clone https://github.com/codewithsadee/grilli.git
+# create a new project in the current directory
+npx sv create
+
+# create a new project in my-app
+npx sv create my-app
 ```
 
-Windows:
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
-git clone https://github.com/codewithsadee/grilli.git
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
 
-### Contact
+## Building
 
-If you want to contact with me you can reach me at [Twitter](https://www.twitter.com/codewithsadee).
+To create a production version of your app:
 
-### License
+```bash
+npm run build
+```
 
-[MIT](https://choosealicense.com/licenses/mit/)
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.

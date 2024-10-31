@@ -25,7 +25,7 @@
             git
 
             nodejs
-            yarn
+            pnpm
 
             gnumake
           ];

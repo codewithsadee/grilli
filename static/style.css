@@ -217,7 +217,26 @@ body.nav-active { overflow: hidden; }
   line-height: var(--lineHeight-2);
 }
 
+.dark-display-1,
+.dark-headline-1,
+.dark-headline-2,
+.dark-title-1,
+.dark-title-2,
+.dark-title-3,
+.dark-title-4 {
+  color: var(--black);
+  font-family: var(--fontFamily-forum);
+  font-weight: var(--weight-regular);
+  line-height: var(--lineHeight-2);
+}
+
+
 .display-1 {
+  font-size: var(--fontSize-display-1);
+  line-height: var(--lineHeight-1);
+}
+
+.dark-display-1 {
   font-size: var(--fontSize-display-1);
   line-height: var(--lineHeight-1);
 }
@@ -358,7 +377,7 @@ body.nav-active { overflow: hidden; }
   z-index: -1;
 }
 
-.btn .text { transition: var(--transition-1); }
+.btn .text { transition: var(--transition-1); color: var(--smoky-black-1) }
 
 .btn .text-2 {
   position: absolute;
@@ -829,6 +848,9 @@ body.nav-active { overflow: hidden; }
 .hero .section-subtitle::after { margin-block: 14px 20px; }
 
 .hero-text { margin-block: 10px 40px; }
+
+.dark-hero-text { color: var(--black); margin-block: 10px 40px; }
+
 
 .hero .btn { margin-inline: auto; }
 
