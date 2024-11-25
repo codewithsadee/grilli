@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="/static/index.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class="h-screen w-screen bg-red-300 flex items-center justify-center">
+
+    <form class="flex flex-col gap-4 p-4 bg-white rounded-lg shadow-lg z-10 w-[500px] h-[700px] items-center" action="">
+        <h1 class="text-3xl font-bold">Edit Video Details</h1>
+
+
+        <label class="place-self-start" for="title">Video Title</label>
+        <input class="w-full h-12 border-2 rounded-md mb-5 p-2" name="title" id="title" type="Title">
+
+
+        <label class="place-self-start" for="thumbnailImage">Thumbnail</label>
+        <img class="object-fit:cover h-[300px] w-[300px]"  src="/frontend/static/images/WhatsApp Image 2024-08-29 at 5.40.58 PM (1).jpeg" height="300" width="300" alt="">
+        <input hidden  type="file" name="thumbnailImage" id="thumbnailImage">
+
+        <div class="w-full flex gap-4 flex-row h-16 place-items-center">
+            <button type="button">
+                Save Changes
+            </button>
+            
+            <button type="button">
+                Cancel
+            </button>
+        </div>
+    </form>
+    
+</body>
+</html>

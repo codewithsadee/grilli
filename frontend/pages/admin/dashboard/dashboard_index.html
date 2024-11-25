@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- 
+    - google font link
+  -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="/static/js/landing_page.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+
+    
+    <script src="http://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'media', // Automatically switch based on system preferences
+        };
+    </script>
+    <title>Dashboard</title>
+    <style>
+        #progressBarFill {
+            width: 0;
+            height: 10px;
+            background-color: #007BFF;
+            transition: width 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="flex flex-row bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+    <!-- Loading Component -->
+    <div id="loadingComponent" class="z-50 w-full h-full bg-black fixed opacity-50 flex items-center justify-center hidden">
+        <div class="items-center flex flex-col justify-center h-20 w-20">
+            <div class="h-12 w-2 bg-blue-500 rounded-full animate-spin"></div>
+            <p class="font-bold text-blue-500">Loading ...</p>
+        </div>
+    </div>
+
+   
+    <!-- Sidebar -->
+    <aside class="w-72 bg-gray-400 dark:bg-gray-800 z-10 shadow-md h-screen fixed text-lg gap-4 hidden md:flex flex-col pl-2 pr-2">
+        <div class="w-full h-[200px] flex items-center justify-center">
+            <img class="h-[100px]" src="/static/images/witty.png" alt="">
+        </div>
+        <a href="/dashboard_index" class="rounded-md w-full h-14 flex items-center p-1 hover:bg-gray-500 dark:hover:bg-gray-700 dark:bg-gray-600">Dashboard</a>
+        <a href="/event_manager" class="rounded-md w-full h-14 flex items-center p-1 hover:bg-gray-500 dark:hover:bg-gray-700">Event Manager</a>
+        <a href="/video_manager" class="rounded-md w-full h-14 flex items-center p-1 hover:bg-gray-500 dark:hover:bg-gray-700 ">Video Manager</a>
+        <a href="#" class="rounded-md w-full h-14 flex items-center p-1 hover:bg-gray-500 dark:hover:bg-gray-700">Picture Manager</a>
+        <div class="w-full h-full"></div>
+        <div class="w-full h-20 flex flex-row justify-between">
+            <div>
+                Dalitso
+            </div>
+            <div> V </div>
+            
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+     <div class="w-full h-screen flex flex-row">
+
+        <!-- Header Component Displays title of page-->
+        <header class="w-full md:ml-72 fixed h-16 bg-red-500 flex items-center justify-between">
+            <p class="text-5xl font-bold text-zinc-800"> Dashboard</p>
+
+        </header>
+
+        <main class="md:ml-72 h-screen w-full p-4 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+        
+        </main>
+     </div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+</body>
+
+</html>

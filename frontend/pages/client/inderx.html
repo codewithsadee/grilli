@@ -28,14 +28,14 @@
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./static/css/style.css">
 
   <!-- 
     - preload images
   -->
-  <link rel="preload" as="image" href="./assets/images/hero-slider-1.jpg">
-  <link rel="preload" as="image" href="./assets/images/hero-slider-2.jpg">
-  <link rel="preload" as="image" href="./assets/images/hero-slider-3.jpg">
+  <link rel="preload" as="image" href="./static/images/hero-slider-1.jpg">
+  <link rel="preload" as="image" href="./static/images/hero-slider-2.jpg">
+  <link rel="preload" as="image" href="./static/images/hero-slider-3.jpg">
 
 </head>
 
@@ -47,7 +47,7 @@
 
   <div class="preload" data-preaload>
     <div class="circle"></div>
-    <p class="text">COOKING WITH THE ZIKOS</p>
+    <p class="text">WITTY FOODS</p>
   </div>
 
 
@@ -115,7 +115,7 @@
     <div class="container">
 
       <a href="#" class="logo">
-        <img src="./assets/images/witty.png" width="160" height="50" alt="Grilli - Home">
+        <img src="./static/images/witty.png" width="160" height="50" alt="Grilli - Home">
       </a>
 
       <nav class="navbar" data-navbar>
@@ -125,7 +125,7 @@
         </button>
 
         <a href="#" class="logo">
-          <img src="./assets/images/witty.png" width="160" height="50" alt="Grilli - Home">
+          <img src="./static/images/witty.png" width="160" height="50" alt="Grilli - Home">
         </a>
 
         <ul class="navbar-list">
@@ -238,7 +238,7 @@
           <li class="slider-item active" data-hero-slider-item>
 
             <div class="slider-bg">
-              <img src="./assets/images/hero-slider-1.jpg" width="1880" height="950" alt="" class="img-cover">
+              <img src="./static/images/hero-slider-1.jpg" width="1880" height="950" alt="" class="img-cover">
             </div>
 
             <p class="label-2 section-subtitle slider-reveal">Tradational & Hygine</p>
@@ -263,7 +263,7 @@
           <li class="slider-item" data-hero-slider-item>
 
             <div class="slider-bg">
-              <img src="./assets/images/hero-slider-2.jpg" width="1880" height="950" alt="" class="img-cover">
+              <img src="./static/images/hero-slider-2.jpg" width="1880" height="950" alt="" class="img-cover">
             </div>
 
             <p class="label-2 section-subtitle slider-reveal">delightful experience</p>
@@ -288,7 +288,7 @@
           <li class="slider-item" data-hero-slider-item>
 
             <div class="slider-bg">
-              <img src="./assets/images/hero-slider-3.jpg" width="1880" height="950" alt="" class="img-cover">
+              <img src="./static/images/hero-slider-3.jpg" width="1880" height="950" alt="" class="img-cover">
             </div>
 
             <p class="label-2 section-subtitle slider-reveal">amazing & delicious</p>
@@ -319,12 +319,12 @@
         <button class="slider-btn next" aria-label="slide to next" data-next-btn>
           <ion-icon name="chevron-forward"></ion-icon>
         </button>
+<!----
+        <a href="#" class="hero-btn has-after">
+          <img src="./static/images/hero-icon.png" width="48" height="48" alt="booking icon">
 
-        <a href="inderx.html" class="hero-btn has-after">
-          <img src="./assets/images/hero-icon.png" width="48" height="48" alt="booking icon">
-
-          <span class="label-2 text-center span">Witty Foods</span>
-        </a>
+          <span class="label-2 text-center span">Book A Table</span>
+        </a>--->
 
       </section>
 
@@ -335,78 +335,109 @@
       <!-- 
         - #SERVICE
       -->
+      <!-- 
+        - #SERVICE
+      -->
+
       <section class="section service bg-black-10 text-center" aria-label="service">
         <div class="container">
-          <h1 class="section-subtitle label-2">Our Services</h1>
-      
-          <!-- Slider Wrapper -->
-          <div class="slider-container">
-            <!-- Slide 1 -->
-            <div class="slide active">
-              <h3>01 SOCIAL MEDIA AWARENESS</h3>
-              <p>It is evident that in recent years, the world has
-                undergone a significant digital transformation
-                that has had far-reaching effects on both
-                business and society. At Cooking with the Zikos,
-                we fully embrace this change and leverage it to
-                promote a variety of products and services. We
-                utilize a range of social media platforms
-                including Facebook, Tiktok, and Instagram to
-                achieve this</p>
-            </div>
-      
-            <!-- Slide 2 -->
-            <div class="slide">
-              <h3>02 SOCIAL INFLUENCERS</h3>
-              <p>Cooking with the Zikos focuses on family values,
-                with Mr. and Mrs. Ziko at the helm. We take pride
-                in our ability to impact the market by
-                emphasizing the importance of family, which is
-                the foundation of society..</p>
-            </div>
-      
-            <!-- Slide 3 -->
-            <div class="slide">
-              <h3>03 PUBLIC ENGAGEMENT</h3>
-              <p>Our marketing tools allow us to effectively engage the public by targeting
-                specific audiences and reaching untapped viewers who can bring value to
-                different organizations.</p>
-            </div>
-      
-            <!-- Slide 4 -->
-            <div class="slide">
-              <h3>04 ENDORSEMENTS</h3>
-              <p>At Cooking with the Zikos, we have established
-                partnerships with a range of organizations that
-                share our values and ethics, fostering long-term
-                collaborations. We actively engage with our
-                audience on various social media platforms and
-                attend events related to the organizations we
-                support in order to achieve this.</p>
-            </div>
-      
-            <!-- Slide 5 -->
-            <div class="slide">
-              <h3>05 CATERING SERVICES</h3>
-              <p>Cooking with the Zikos also shares it’s passion for
-                food through providing catering services for
-                different types of events such as weddings,
-                concessions, and corporate and social
-                gatherings.</p>
-            </div>
-          </div>
-      
-          <!-- Navigation Buttons -->
-          <button class="prev">&#10094;</button>
-          <button class="next">&#10095;</button>
+
+          <p class="section-subtitle label-2">Flavors For Royalty</p>
+
+          <h2 class="headline-1 section-title">Every Flavor Tells a Story</h2>
+
+          <p class="section-text">
+            Our content is food-centric. We understand that food holds a special place in 
+            various cultures, serving as a means to preserve traditions and connect people
+             across the globe. 
+          </p>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="service-card">
+
+                <a href="#" class="has-before hover:shine">
+                  <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
+                    <img src="./static/images/service-1.jpg" width="285" height="336" loading="lazy" alt="Breakfast"
+                      class="img-cover">
+                  </figure>
+                </a>
+
+                <div class="card-content">
+
+                  <h3 class="title-4 card-title">
+                    <a href="#">Breakfast</a>
+                  </h3>
+
+                  <a href="#" class="btn-text hover-underline label-2">View Menu</a>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <a href="#" class="has-before hover:shine">
+                  <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
+                    <img src="./static/images/service-2.jpg" width="285" height="336" loading="lazy" alt="Appetizers"
+                      class="img-cover">
+                  </figure>
+                </a>
+
+                <div class="card-content">
+
+                  <h3 class="title-4 card-title">
+                    <a href="#">Appetizers</a>
+                  </h3>
+
+                  <a href="#" class="btn-text hover-underline label-2">View Menu</a>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <a href="#" class="has-before hover:shine">
+                  <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
+                    <img src="./static/images/service-3.jpg" width="285" height="336" loading="lazy" alt="Drinks"
+                      class="img-cover">
+                  </figure>
+                </a>
+
+                <div class="card-content">
+
+                  <h3 class="title-4 card-title">
+                    <a href="#">Drinks</a>
+                  </h3>
+
+                  <a href="#" class="btn-text hover-underline label-2">View Menu</a>
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+          <img src="./static/images/shape-1.png" width="246" height="412" loading="lazy" alt="shape"
+            class="shape shape-1 move-anim">
+          <img src="./static/images/shape-2.png" width="343" height="345" loading="lazy" alt="shape"
+            class="shape shape-2 move-anim">
+
         </div>
       </section>
-      
-          <img src="./assets/images/shape-1.png" width="246" height="412" loading="lazy" alt="shape" class="shape shape-1 move-anim">
-          <img src="./assets/images/shape-2.png" width="343" height="345" loading="lazy" alt="shape" class="shape shape-2 move-anim">
-        </div>
-      </section>
-      
+
+
+
+
+
+    
 
 
 
@@ -460,21 +491,21 @@
 
           <figure class="about-banner">
 
-            <img src="./assets/images/about-banner.jpg" width="570" height="570" loading="lazy" alt="about banner"
+            <img src="./static/images/about-banner.jpg" width="570" height="570" loading="lazy" alt="about banner"
               class="w-100" data-parallax-item data-parallax-speed="1">
 
             <div class="abs-img abs-img-1 has-before" data-parallax-item data-parallax-speed="1.75">
-              <img src="./assets/images/about-abs-image.jpg" width="285" height="285" loading="lazy" alt=""
+              <img src="./static/images/about-abs-image.jpg" width="285" height="285" loading="lazy" alt=""
                 class="w-100">
             </div>
 
             <div class="abs-img abs-img-2 has-before">
-              <img src="./assets/images/badge-2.png" width="133" height="134" loading="lazy" alt="">
+              <img src="./static/images/badge-2.png" width="133" height="134" loading="lazy" alt="">
             </div>
 
           </figure>
 
-          <img src="./assets/images/shape-3.png" width="197" height="194" loading="lazy" alt="" class="shape">
+          <img src="./static/images/shape-3.png" width="197" height="194" loading="lazy" alt="" class="shape">
 
         </div>
       </section>
@@ -490,14 +521,14 @@
       <section class="special-dish text-center" aria-labelledby="dish-label">
 
         <div class="special-dish-banner">
-          <img src="./assets/images/special-dish-banner.jpg" width="940" height="900" loading="lazy" alt="special dish"
+          <img src="./static/images/special-dish-banner.jpg" width="940" height="900" loading="lazy" alt="special dish"
             class="img-cover">
         </div>
 
         <div class="special-dish-content bg-black-10">
           <div class="container">
 
-            <img src="./assets/images/badge-1.png" width="28" height="41" loading="lazy" alt="badge" class="abs-img">
+            <img src="./static/images/badge-1.png" width="28" height="41" loading="lazy" alt="badge" class="abs-img">
 
             <p class="section-subtitle label-2">Special Dish</p>
 
@@ -522,9 +553,9 @@
           </div>
         </div>
 
-        <img src="./assets/images/shape-4.png" width="179" height="359" loading="lazy" alt="" class="shape shape-1">
+        <img src="./static/images/shape-4.png" width="179" height="359" loading="lazy" alt="" class="shape shape-1">
 
-        <img src="./assets/images/shape-9.png" width="351" height="462" loading="lazy" alt="" class="shape shape-2">
+        <img src="./static/images/shape-9.png" width="351" height="462" loading="lazy" alt="" class="shape shape-2">
 
       </section>
 
@@ -549,7 +580,7 @@
               <div class="menu-card hover:card">
 
                 <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
-                  <img src="./assets/images/menu-1.png" width="100" height="100" loading="lazy" alt="Greek Salad"
+                  <img src="./static/images/menu-1.png" width="100" height="100" loading="lazy" alt="Greek Salad"
                     class="img-cover">
                 </figure>
 
@@ -578,7 +609,7 @@
               <div class="menu-card hover:card">
 
                 <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
-                  <img src="./assets/images/menu-2.png" width="100" height="100" loading="lazy" alt="Lasagne"
+                  <img src="./static/images/menu-2.png" width="100" height="100" loading="lazy" alt="Lasagne"
                     class="img-cover">
                 </figure>
 
@@ -605,7 +636,7 @@
               <div class="menu-card hover:card">
 
                 <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
-                  <img src="./assets/images/menu-3.png" width="100" height="100" loading="lazy" alt="Butternut Pumpkin"
+                  <img src="./static/images/menu-3.png" width="100" height="100" loading="lazy" alt="Butternut Pumpkin"
                     class="img-cover">
                 </figure>
 
@@ -632,7 +663,7 @@
               <div class="menu-card hover:card">
 
                 <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
-                  <img src="./assets/images/menu-4.png" width="100" height="100" loading="lazy" alt="Tokusen Wagyu"
+                  <img src="./static/images/menu-4.png" width="100" height="100" loading="lazy" alt="Tokusen Wagyu"
                     class="img-cover">
                 </figure>
 
@@ -661,7 +692,7 @@
               <div class="menu-card hover:card">
 
                 <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
-                  <img src="./assets/images/menu-5.png" width="100" height="100" loading="lazy" alt="Olivas Rellenas"
+                  <img src="./static/images/menu-5.png" width="100" height="100" loading="lazy" alt="Olivas Rellenas"
                     class="img-cover">
                 </figure>
 
@@ -688,7 +719,7 @@
               <div class="menu-card hover:card">
 
                 <figure class="card-banner img-holder" style="--width: 100; --height: 100;">
-                  <img src="./assets/images/menu-6.png" width="100" height="100" loading="lazy" alt="Opu Fish"
+                  <img src="./static/images/menu-6.png" width="100" height="100" loading="lazy" alt="Opu Fish"
                     class="img-cover">
                 </figure>
 
@@ -723,9 +754,9 @@
             <span class="text text-2" aria-hidden="true">View All Menu</span>
           </a>
 
-          <img src="./assets/images/shape-5.png" width="921" height="1036" loading="lazy" alt="shape"
+          <img src="./static/images/shape-5.png" width="921" height="1036" loading="lazy" alt="shape"
             class="shape shape-2 move-anim">
-          <img src="./assets/images/shape-6.png" width="343" height="345" loading="lazy" alt="shape"
+          <img src="./static/images/shape-6.png" width="343" height="345" loading="lazy" alt="shape"
             class="shape shape-3 move-anim">
 
         </div>
@@ -740,7 +771,7 @@
       -->
 
       <section class="section testi text-center has-bg-image"
-        style="background-image: url('./assets/images/serving.jpg')" aria-label="testimonials">
+        style="background-image: url('./static/images/serving.jpg')" aria-label="testimonials">
         <div class="container">
 
           <div class="quote">”</div>
@@ -757,7 +788,7 @@
           </div>
 
           <div class="profile">
-            <img src="./assets/images/WhatsApp Image 2024-08-29 at 5.40.58 PM (1).jpeg" width="100" height="100" loading="lazy" alt="Sam Jhonson"
+            <img src="./static/images/WhatsApp Image 2024-08-29 at 5.40.58 PM (1).jpeg" width="100" height="100" loading="lazy" alt="Sam Jhonson"
               class="img">
 
             <p class="label-2 profile-name">THE ZIKOS</p>
@@ -856,7 +887,7 @@
 
             </form>
 
-            <div class="form-right text-center" style="background-image: url('./assets/images/form-pattern.png')">
+            <div class="form-right text-center" style="background-image: url('./static/images/form-pattern.png')">
 
               <h2 class="headline-1 text-center">Contact Us</h2>
 
@@ -915,7 +946,7 @@
               <div class="feature-card">
 
                 <div class="card-icon">
-                  <img src="./assets/images/features-icon-1.png" width="100" height="80" loading="lazy" alt="icon">
+                  <img src="./static/images/features-icon-1.png" width="100" height="80" loading="lazy" alt="icon">
                 </div>
 
                 <h3 class="title-2 card-title">Hygienic Food</h3>
@@ -929,7 +960,7 @@
               <div class="feature-card">
 
                 <div class="card-icon">
-                  <img src="./assets/images/features-icon-2.png" width="100" height="80" loading="lazy" alt="icon">
+                  <img src="./static/images/features-icon-2.png" width="100" height="80" loading="lazy" alt="icon">
                 </div>
 
                 <h3 class="title-2 card-title">Fresh Environment</h3>
@@ -943,7 +974,7 @@
               <div class="feature-card">
 
                 <div class="card-icon">
-                  <img src="./assets/images/features-icon-3.png" width="100" height="80" loading="lazy" alt="icon">
+                  <img src="./static/images/features-icon-3.png" width="100" height="80" loading="lazy" alt="icon">
                 </div>
 
                 <h3 class="title-2 card-title">Skilled Chefs</h3>
@@ -957,7 +988,7 @@
               <div class="feature-card">
 
                 <div class="card-icon">
-                  <img src="./assets/images/features-icon-4.png" width="100" height="80" loading="lazy" alt="icon">
+                  <img src="./static/images/features-icon-4.png" width="100" height="80" loading="lazy" alt="icon">
                 </div>
 
                 <h3 class="title-2 card-title">Event & Party</h3>
@@ -969,10 +1000,10 @@
 
           </ul>
 
-          <img src="./assets/images/shape-7.png" width="208" height="178" loading="lazy" alt="shape"
+          <img src="./static/images/shape-7.png" width="208" height="178" loading="lazy" alt="shape"
             class="shape shape-1">
 
-          <img src="./assets/images/shape-8.png" width="120" height="115" loading="lazy" alt="shape"
+          <img src="./static/images/shape-8.png" width="120" height="115" loading="lazy" alt="shape"
             class="shape shape-2">
 
         </div>
@@ -999,7 +1030,7 @@
               <div class="event-card has-before hover:shine">
 
                 <div class="card-banner img-holder" style="--width: 350; --height: 450;">
-                  <img src="./assets/images/event-1.jpg" width="350" height="450" loading="lazy"
+                  <img src="./static/images/event-1.jpg" width="350" height="450" loading="lazy"
                     alt="Flavour so good you’ll try to eat with your eyes." class="img-cover">
 
                   <time class="publish-date label-2" datetime="2022-09-15">15/09/2022</time>
@@ -1020,7 +1051,7 @@
               <div class="event-card has-before hover:shine">
 
                 <div class="card-banner img-holder" style="--width: 350; --height: 450;">
-                  <img src="./assets/images/event-2.jpg" width="350" height="450" loading="lazy"
+                  <img src="./static/images/event-2.jpg" width="350" height="450" loading="lazy"
                     alt="Flavour so good you’ll try to eat with your eyes." class="img-cover">
 
                   <time class="publish-date label-2" datetime="2022-09-08">08/09/2022</time>
@@ -1041,7 +1072,7 @@
               <div class="event-card has-before hover:shine">
 
                 <div class="card-banner img-holder" style="--width: 350; --height: 450;">
-                  <img src="./assets/images/event-3.jpg" width="350" height="450" loading="lazy"
+                  <img src="./static/images/event-3.jpg" width="350" height="450" loading="lazy"
                     alt="Flavour so good you’ll try to eat with your eyes." class="img-cover">
 
                   <time class="publish-date label-2" datetime="2022-09-03">03/09/2022</time>
@@ -1081,7 +1112,7 @@
   -->
 
   <footer class="footer section has-bg-image text-center"
-    style="background-image: url('./assets/images/footer-bg.jpg')">
+    style="background-image: url('./static/images/footer-bg.jpg')">
     <div class="container">
 
       <div class="footer-top grid-list">
@@ -1089,7 +1120,7 @@
         <div class="footer-brand has-before has-after">
 
           <a href="#" class="logo">
-            <img src="./assets/images/witty.png" width="160" height="50" loading="lazy" alt="grilli home">
+            <img src="./static/images/witty.png" width="160" height="50" loading="lazy" alt="grilli home">
           </a>
 
           <address class="body-4">
@@ -1213,7 +1244,7 @@
   <!-- 
     - custom js link
   -->
-  <script src="./assets/js/script.js"></script>
+  <script src="./static/js/script.js"></script>
 
   <!-- 
     - ionicon link
