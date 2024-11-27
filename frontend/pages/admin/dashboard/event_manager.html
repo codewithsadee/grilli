@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="/static/js/components/navbar.js"></script>
     <script type="module" src="/static/js/event_manager.js"></script>
     <script src="/static/js/tailwind.config.js"></script>
     <!-- <script src="http://cdn.tailwindcss.com"></script> -->
@@ -137,23 +138,7 @@
     
 
      <!-- Sidebar -->
-     <aside class="w-72 bg-gray-400 dark:bg-gray-800 z-10 shadow-md h-screen fixed text-lg gap-4 hidden md:flex flex-col pl-2 pr-2">
-        <div class="w-full h-[200px] flex items-center justify-center">
-            <img class="h-[100px]" src="/static/images/witty.png" alt="">
-        </div>
-        <a href="/dashboard_index" class="rounded-md w-full h-14 flex items-center p-1 hover:bg-gray-500 dark:hover:bg-gray-700">Dashboard</a>
-        <a href="/event_manager" class="rounded-md w-full h-14 flex items-center p-1 hover:bg-gray-500 dark:hover:bg-gray-700 dark:bg-gray-600">Event Manager</a>
-        <a href="/video_manager" class="rounded-md w-full h-14 flex items-center p-1 hover:bg-gray-500 dark:hover:bg-gray-700 ">Video Manager</a>
-        <a href="#" class="rounded-md w-full h-14 flex items-center p-1 hover:bg-gray-500 dark:hover:bg-gray-700">Picture Manager</a>
-        <div class="w-full h-full"></div>
-        <div class="w-full h-20 flex flex-row justify-between">
-            <div>
-                Dalitso
-            </div>
-            <div> V </div>
-            
-        </div>
-    </aside>
+    <my-navbar></my-navbar>
 
     <!-- Main Content -->
     <main class="md:ml-72 h-screen w-full p-4 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
