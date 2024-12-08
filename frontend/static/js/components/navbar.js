@@ -30,11 +30,14 @@ class MyNavBar extends HTMLElement {
 
         //Skeleton of the navbar
         const navbar = document.createElement('aside');
-        navbar.classList.add('w-64','flex','flex-col','h-full', 'fixed', 'top-0', 'left-0', 'bg-gray-900', 'p-4', 'text-white', 'z-50');
+        navbar.classList.add('w-64','hidden','md:flex','flex-col','h-full', 'fixed', 'top-0', 'left-0', 'bg-gray-900', 'p-4', 'text-white', 'z-50');
 
 
         //Card will contain the logo
         const card = document.createElement('div');
+        const spacer = document.createElement('div');
+        const profile = document.createElement('div');
+        spacer.classList.add('h-full')
         card.classList.add(  'mb-4', 'h-20');
 
         card.innerHTML = `
@@ -55,9 +58,14 @@ class MyNavBar extends HTMLElement {
         navbarContent.appendChild(crimeMapLink);
         navbarContent.appendChild(crimesLink);
 
+
+      
         //appending everything
         navbar.append(card);
+        
         navbar.append(navbarContent);
+      
+
 
         this.append(navbar);
 

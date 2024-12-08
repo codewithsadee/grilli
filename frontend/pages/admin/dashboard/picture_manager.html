@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Sweet alert-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="/static/js/components/navbar.js"></script>
+    <script type="module" src="/static/js/picture_manager.js"></script>
+    <script src="http://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'media', // Automatically switch based on system preferences
+        };
+    </script>
+    <title>Picture Manager</title>
+    <style>
+        #progressBarFill {
+            width: 0;
+            height: 10px;
+            background-color: #007BFF;
+            transition: width 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="flex flex-row bg-gray-100  text-gray-900 ">
+
+    <!-- Loading Component -->
+    <div id="loadingComponent"
+        class="z-50 w-full h-full bg-black fixed opacity-50 flex items-center justify-center hidden">
+        <div class="items-center flex flex-col justify-center h-20 w-20">
+            <div class="h-12 w-2 bg-blue-500 rounded-full animate-spin"></div>
+            <p class="font-bold text-blue-500">Loading ...</p>
+        </div>
+    </div>
+
+    <!-- Add Picture Component -->
+    <div id="addPictureComponentLoading" class=" upload_container hidden">
+
+        <div id="addPictureComponent" class="upload-ui">
+            <h2 class="text-2xl font-semibold mb-4">Image Upload</h2>
+            <div class="mb-4">
+
+                <label for="image-upload" class="block text-sm font-medium text-gray-700 mb-2">
+                    Select an image
+                </label>
+                <input id="image-upload" type="file" name="image-upload" class="
+                block w-full text-sm text-gray-500
+            file:mr-4 file:py-2 file:px-4
+            file:rounded-md file:border-0
+            file:text-sm file:font-semibold
+            file:bg-blue-50 file:text-blue-700
+            hover:file:bg-blue-100
+                ">
+
+                <div id="image-preview-container" class="mb-4 hidden">
+                    <h3 class="text-lg font-semibold mb-2">Preview:</h3>
+                    <img id="image-preview" alt="Preview"
+                        class="max-w-full h-auto rounded-lg"
+                        src="">
+                </div>
+
+                <div class="flex space-x-4 mb-4"><button id="uploadButton"
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 flex-1"
+                        disabled="">Upload Image</button>
+                        <button id="cancelButton"
+                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2 flex-1">Cancel</button>
+                </div>
+
+                <!-- Progress Bar -->
+            <div id="progressBar" class="h-[10px] w-full rounded-md bg-gray-200 ">
+                <div id="progressBarFill" class="h-full bg-violet-700 rounded-md"></div>
+            </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Sidebar -->
+    <my-navbar></my-navbar>
+
+    <!-- Main Content -->
+    <main class="md:ml-72 h-screen w-full p-4 bg-gray-100  text-gray-900 ">
+        <h1 class="text-5xl font-bold">Picture Manager</h1>
+        <div class="w-full h-16 justify-between flex flex-row items-center pl-12 pr-12">
+            <p>Total Pictures <span id="total_Pictures" class="bg-blue-300 rounded-lg p-1 dark:bg-blue-500">-</span></p>
+            <button id="addPicture" type="button"
+                class="bg-gray-300 hover:bg-gray-400  dark:hover:bg-gray-700 text-gray-800 flex flex-row  font-bold py-2 px-4 rounded">
+                <svg class="w-6 h-6 pr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7 7V5" />
+                </svg>
+                <span>Add Picture</span>
+            </button>
+        </div>
+        <div id="pictureGrid" class="picture-grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 ">
+
+          
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+</body>
+
+</html>

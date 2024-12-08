@@ -1,0 +1,340 @@
+:root{
+
+    --video-title-size: 1.3em;
+    background-color: var(--eerie-black-1);
+
+     /**
+   * COLORS
+   */
+
+  --gold-crayola: hsl(38, 61%, 73%);
+  --quick-silver: hsla(0, 0%, 65%, 1);
+  --davys-grey: hsla(30, 3%, 34%, 1);
+  --smoky-black-1: hsla(40, 12%, 5%, 1);
+  --smoky-black-2: hsla(30, 8%, 5%, 1);
+  --smoky-black-3: hsla(0, 3%, 7%, 1);
+  --eerie-black-1: hsla(210, 4%, 9%, 1);
+  --eerie-black-2: hsla(210, 4%, 11%, 1);
+  --eerie-black-3: hsla(180, 2%, 8%, 1);
+  --eerie-black-4: hsla(0, 0%, 13%, 1);
+  --white: hsla(0, 0%, 100%, 1);
+  --white-alpha-20: hsla(0, 0%, 100%, 0.2);
+  --white-alpha-10: hsla(0, 0%, 100%, 0.1);
+  --black: hsla(0, 0%, 0%, 1);
+  --black-alpha-80: hsla(0, 0%, 0%, 0.8);
+  --black-alpha-15: hsla(0, 0%, 0%, 0.15);
+
+  /**
+   * GRADIENT COLOR
+   */
+
+  --loading-text-gradient: linear-gradient(90deg, transparent 0% 16.66%, var(--smoky-black-3) 33.33% 50%,  transparent 66.66% 75%);
+  --gradient-1: linear-gradient(to top,hsla(0, 0%, 0%, 0.9),hsla(0, 0%, 0%, 0.7),transparent);
+
+  /**
+   * TYPOGRAPHY
+   */
+
+  /* font-family */
+  --fontFamily-forum: 'Forum', cursive;
+  --fontFamily-dm_sans: 'DM Sans', sans-serif;
+
+  /* font-size */
+  --fontSize-display-1: calc(1.3rem + 6.7vw);
+  --fontSize-headline-1: calc(2rem + 2.5vw);
+  --fontSize-headline-2: calc(1.3rem + 2.4vw);
+  --fontSize-title-1: calc(1.6rem + 1.2vw);
+  --fontSize-title-2: 2.2rem;
+  --fontSize-title-3: 2.1rem;
+  --fontSize-title-4: calc(1.6rem + 1.2vw);
+  --fontSize-body-1: 2.4rem;
+  --fontSize-body-2: 1.6rem;
+  --fontSize-body-3: 1.8rem;
+  --fontSize-body-4: 1.6rem;
+  --fontSize-label-1: 1.4rem;
+  --fontSize-label-2: 1.2rem;
+
+  /* font-weight */
+  --weight-regular: 400;
+  --weight-bold: 700;
+
+  /* line-height */
+  --lineHeight-1: 1em;
+  --lineHeight-2: 1.2em;
+  --lineHeight-3: 1.5em;
+  --lineHeight-4: 1.6em;
+  --lineHeight-5: 1.85em;
+  --lineHeight-6: 1.4em;
+
+  /* letter-spacing */
+  --letterSpacing-1: 0.15em;
+  --letterSpacing-2: 0.4em;
+  --letterSpacing-3: 0.2em;
+  --letterSpacing-4: 0.3em;
+  --letterSpacing-5: 3px;
+
+  /**
+   * SPACING
+   */
+
+  --section-space: 70px;
+
+  /**
+   * SHADOW
+   */
+
+  --shadow-1: 0px 0px 25px 0px hsla(0, 0%, 0%, 0.25);
+
+  /**
+   * BORDER RADIUS
+   */
+
+  --radius-24: 24px;
+  --radius-circle: 50%;
+
+  /**
+   * TRANSITION
+   */
+
+  --transition-1: 250ms ease;
+  --transition-2: 500ms ease;
+  --transition-3: 1000ms ease;
+
+
+  --num-rows: 4;
+}
+
+
+
+.grid-container{
+    grid-template-columns: 80% 20%;
+}
+
+.event-title{
+
+ 
+    color: var(--gold-crayola);
+}
+.video-title{
+    font-weight: 900;
+
+    padding: 2px;
+    font-size: var(--video-title-size);
+}
+
+.list-view-container{
+
+    overflow-y: scroll;
+    
+}
+
+.header-container{
+
+  
+    background-color: var(--black-alpha-80);
+}
+.hero{
+
+    background-color: var(--black-alpha-80);
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    
+}
+.list-view-item{
+
+    width: 100%;
+    height: 40%;
+    background-color: var(--black-alpha-80);
+    margin-bottom: 2rem;
+    grid-template-columns: 90% 10%;
+    gap: 2rem;
+    padding: 2px;
+   
+}
+video-container{
+
+    aspect-ratio: 1;
+}
+
+.box-aspect{
+    aspect-ratio: 4/3;
+}
+
+.section-subtitle {
+    position: relative;
+    color: var(--gold-crayola);
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--letterSpacing-2);
+    margin-block-end: 12px;
+  }
+  
+  .section-subtitle::after {
+   
+    display: block;
+    width: 100px; 
+    margin-inline: auto;
+    margin-block-start: 5px;
+  }
+
+
+  .event-list-item{
+
+    overflow: hidden;
+    padding: 10px;
+    border-radius: 20px;
+    border-color:  var(--gold-crayola) ;
+   
+    border-width: 2px;
+    box-shadow: var(--white-alpha-10);
+    height: 200px;
+  }
+
+  .pic-span-2{
+    grid-row: span 2;
+    grid-column: span 2;
+  }
+  .picture-grid{
+
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    grid-auto-rows: 300px;
+    display: grid;
+    box-sizing: border-box;
+  }
+  .picture-grid > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+::-webkit-scrollbar{
+    background-color: var(--eerie-black-1);
+    width: 5px;
+}
+::-webkit-scrollbar-thumb{
+  background-color: var(--gold-crayola);
+    color: #000;
+}
+
+
+@keyframes zoomIn {
+
+    0%{
+      scale: 100%;
+    }
+    100%{
+        scale: 103%;
+    }
+  
+    33%{
+        scale: 107%;
+    }
+    50%{
+      scale: 110%;
+    }
+    100%{
+      scale: 115%;
+    }
+  
+}
+
+.fade-image {
+  transition: opacity 1s ease-in-out;
+  opacity: 1; /* Fully visible */
+}
+
+.fade-out {
+  opacity: 0; /* Transparent for fading out */
+}
+
+
+#navbar {
+  position: fixed;
+  top: 0; /* Initially visible */
+  width: 100%;
+  transition: top 0.5s ease; /* Smooth transition for top property */
+  
+  color: white;
+  padding: 10px;
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+a:hover{
+    color: var(--gold-crayola);
+}
+a{
+  font-size: large;
+}
+
+.footer-section {
+  background: linear-gradient(135deg, #1a1a1a, #333333);
+  color: azure;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-grid, .other-footer-grid {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  gap: 20px;
+}
+
+.footer-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  text-align: center;
+}
+
+.other-footer-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.footer-grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-grid-item a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.footer-grid-item a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-section {
+      padding: 20px;
+  }
+  .picture-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

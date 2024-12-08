@@ -29,13 +29,15 @@ export async function getVideos() {
 
 }
 
-export async function UploadVideo(videoBlob) {
+export async function UploadVideo(videoBlob, videoName, thumbnailBlob) {
 
     let data = null;
     let error = null;
     const progressBarElement = document.getElementById("progressBarFill")
     const formdata = new FormData()
+    formdata.append("videoName", videoName)
     formdata.append("video", videoBlob)
+    formdata.append("thumbnail", thumbnailBlob)
 
     try {
 
@@ -98,24 +100,53 @@ export async function playVideo(videoId) {
     try {
 
         const response = await fetch(`/playVideo/${videoId}`, {
-            
-        })
-        if(!response.ok){
 
-            error=  response.statusText
+        })
+        if (!response.ok) {
+
+            error = response.statusText
             throw new Error(response.statusText)
         }
 
         data = response.json()
-        
+
     } catch (e) {
 
         error = e.toString()
         console.error(e)
-        
+
     }
 
     return [data, error]
-    
+
+}
+
+
+export async function deleteVideo(videoId, video_url) {
+
+    let data = null;
+    let error = null;
+
+
+
+
+    try {
+
+        const response = await fetch(`/video/${videoId}?link=${video_url}`, {
+            method: "DELETE",
+        });
+
+        if (!response.ok) {
+            error = response.statusText
+            throw new Error(response.statusText)
+        }
+        data = await response.json();
+
+    } catch (err) {
+
+        error = err.toString()
+    }
+
+    return [data, error];
 }
 

@@ -344,6 +344,12 @@ body.nav-active { overflow: hidden; }
   z-index: 1;
 }
 
+.text-gold-crayola{
+
+  background-color: var(--gold-crayola);
+  color: var(--gold-crayola);
+}
+
 .btn::before {
   content: "";
   position: absolute;

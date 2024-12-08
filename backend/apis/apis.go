@@ -3,6 +3,7 @@ package apis
 import (
 	"database/sql"
 	"log"
+	"runtime"
 	"strconv"
 	"zikos/backend/auth"
 	"zikos/backend/models"
@@ -42,8 +43,9 @@ func StartServer(dbportNumber int) error {
 	r := gin.Default()
 
 	r.Static("/static", "./frontend/static")
+	r.Static("/thumbnails", "./thumbnails")
 
-	r.LoadHTMLFiles("./frontend/pages/admin/dashboard/video_manager.html", "./frontend/pages/client/Landing.html",
+	r.LoadHTMLFiles("./frontend/pages/admin/dashboard/picture_manager.html", "./frontend/pages/admin/dashboard/video_manager.html", "./frontend/pages/client/Landing.html",
 		"./frontend/pages/admin/dashboard/login.html", "./frontend/pages/admin/dashboard/event_manager.html",
 		"./frontend/pages/admin/dashboard/dashboard_index.html",
 	)
@@ -65,8 +67,12 @@ func StartServer(dbportNumber int) error {
 	r.GET("/getVideos", getVideos)
 
 	r.GET("/video/:id", StreamVideoHandler)
+	r.DELETE("/video/:id", deleteVideo)
 	r.GET("/video_manager", func(ctx *gin.Context) {
 		ctx.HTML(http.StatusOK, "video_manager.html", nil)
+	})
+	r.GET("/picture_manager", func(ctx *gin.Context) {
+		ctx.HTML(http.StatusOK, "picture_manager.html", nil)
 	})
 
 	r.GET("/dashboard_index", func(ctx *gin.Context) {
@@ -85,6 +91,11 @@ func StartServer(dbportNumber int) error {
 	r.PATCH("/events", updateEvent)
 	r.POST("/events", createEvent)
 	r.DELETE("/events/:id", deleteEvent)
+
+	r.GET("/pictures", getPictures)
+
+	r.POST("/pictures", addPicture)
+	r.DELETE("/pictures/:id", deletePicture)
 	r.GET("/getLandingPageVideos", getLandingPageVideos)
 
 	r.POST("/uploadVideo", uploadVideo)
@@ -109,7 +120,7 @@ func getVideos(c *gin.Context) {
 		var video models.Video
 
 		// Scan each row
-		err := rows.Scan(&video.Id, &video.Name, &video.Link, &video.IsOnDash)
+		err := rows.Scan(&video.Id, &video.Name, &video.Link, &video.IsOnDash, &video.Thumbnail)
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 			return
@@ -131,10 +142,21 @@ func getVideos(c *gin.Context) {
 
 func uploadVideo(c *gin.Context) {
 
+	imageTitle := c.PostForm("videoName")
 	formData, err := c.FormFile("video")
+
+	if err != nil {
+		fmt.Println(err)
+		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
+			"message": "No file is received",
+		})
+		return
+	}
+	thumbnanil, err := c.FormFile("thumbnail")
 
 	// The file cannot be received.
 	if err != nil {
+		fmt.Println(err)
 		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
 			"message": "No file is received",
 		})
@@ -144,25 +166,53 @@ func uploadVideo(c *gin.Context) {
 	directory, err := os.Getwd()
 	if err != nil {
 
+		fmt.Println(err)
 		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
 			"message": err.Error(),
 		})
 	}
 
 	// file, err := formData.Open()
-	video_directory := fmt.Sprintf("%s/videos/%s", directory, formData.Filename)
+	os := runtime.GOOS
 
-	fmt.Print(video_directory)
+	var video_directory string
+	var image_directory string
+	var db_path string
+
+	switch os {
+	case "windows":
+
+		video_directory = fmt.Sprintf("%s\\videos\\%s", directory, formData.Filename)
+		image_directory = fmt.Sprintf("%s\\thumbnails\\%s", directory, thumbnanil.Filename)
+		db_path = fmt.Sprintf("\\thumbnails\\%s", thumbnanil.Filename)
+	case "linux":
+		video_directory = fmt.Sprintf("%s/videos/%s", directory, formData.Filename)
+		image_directory = fmt.Sprintf("%s/thumbnails/%s", directory, thumbnanil.Filename)
+		db_path = fmt.Sprintf("/thumbnails/%s", thumbnanil.Filename)
+
+	}
+
+	fmt.Println("video_directory", video_directory)
+	fmt.Println("image_directory", image_directory)
+	fmt.Print("os", os)
 
 	if err := c.SaveUploadedFile(formData, video_directory); err != nil {
+		fmt.Println(err)
 		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
-			"message": "Unable to save the file",
+			"message": "Unable to save the video",
 		})
 		return
 	}
-	filename := formData.Filename
+	if err := c.SaveUploadedFile(thumbnanil, image_directory); err != nil {
+		fmt.Println(err)
+		c.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
 
-	_, err2 := db.Exec("INSERT INTO landing_videos (name, url_link, is_on_dash) VALUES ($1, $2, $3)", filename, video_directory, true)
+			"message": "Unable to save the image",
+		})
+		return
+	}
+
+	_, err2 := db.Exec("INSERT INTO landing_videos (name, url_link,thumbnail, is_on_dash) VALUES ($1, $2, $3, $4)", imageTitle, video_directory, db_path, true)
 
 	if err2 != nil {
 
@@ -296,6 +346,7 @@ func deleteEvent(c *gin.Context) {
 		})
 
 	}
+	fmt.Println("event successfully deleted")
 
 	c.JSON(200, gin.H{
 		"message": "event successfully deleted",
@@ -367,4 +418,179 @@ func createEvent(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"message": "Event successfully added",
 	})
+}
+
+func deleteVideo(c *gin.Context) {
+
+	id, err := strconv.Atoi(c.Param("id"))
+	link := c.Query("link")
+
+	fmt.Println(link)
+	if err != nil {
+
+		c.JSON(500, gin.H{
+			"failed to parse parameter": err.Error(),
+		})
+	}
+
+	err = os.Remove(link)
+	if err != nil {
+
+		c.JSON(500, gin.H{
+			"failed to Delete Video": err.Error(),
+		})
+	}
+	_, err = db.Exec("DELETE FROM landing_videos where id = $1", id)
+
+	if err != nil {
+
+		c.JSON(500, gin.H{
+			"failed to delete Video from db": err.Error(),
+		})
+	}
+
+	c.JSON(200, gin.H{
+		"message": "Video successfully deleted",
+	})
+
+}
+
+func getPictures(c *gin.Context) {
+
+	rows, err := db.Query(`SELECT * FROM pictures`)
+
+	if err != nil {
+		fmt.Println(err)
+		c.JSON(500, gin.H{
+			"error": err.Error(),
+		})
+	}
+	defer rows.Close()
+
+	var pictures []models.Photo
+	for rows.Next() {
+		var picture models.Photo
+
+		if err = rows.Scan(&picture.Id, &picture.Url, &picture.IsOnHome, &picture.PictureName); err != nil {
+
+			c.JSON(500, gin.H{
+				"error": err.Error(),
+			})
+		}
+
+		pictures = append(pictures, picture)
+
+	}
+
+	c.JSON(200, gin.H{
+		"pictures": pictures,
+	})
+
+}
+
+func addPicture(c *gin.Context) {
+
+	picture, err := c.FormFile("image")
+
+	if err != nil {
+		c.JSON(400, gin.H{
+			"error": err.Error(),
+		})
+	}
+	directory, err := os.Getwd()
+
+	os := runtime.GOOS
+	if err != nil {
+		c.JSON(500, gin.H{
+			"error": err.Error(),
+		})
+	}
+	picture_name := picture.Filename
+
+	var db_path string
+	var image_directory string
+
+	switch os {
+	case "windows":
+
+		image_directory = fmt.Sprintf(`%s\frontend\static\images\%s`, directory, picture_name)
+		db_path = fmt.Sprintf(`\static\images\%s`, picture_name)
+	case "linux":
+
+		image_directory = fmt.Sprintf("%s/frontend/static/images/%s", directory, picture_name)
+		db_path = fmt.Sprintf("/static/images/%s", picture_name)
+
+	}
+
+	err = c.SaveUploadedFile(picture, image_directory)
+
+	if err != nil {
+		c.JSON(500, gin.H{
+			"error": err.Error(),
+		})
+	}
+
+	_, err = db.Exec("INSERT INTO pictures (url_link, is_on_dash, picture_name) VALUES ($1, $2, $3)", db_path, false, picture_name)
+
+	if err != nil {
+
+		c.JSON(500, gin.H{
+			"error": err.Error(),
+		})
+	}
+
+	c.JSON(200, gin.H{
+		"message": "Picture successfully added",
+	})
+}
+
+func deletePicture(c *gin.Context) {
+	// Parse the ID from the URL parameter
+	id, err := strconv.Atoi(c.Param("id"))
+	if err != nil {
+		c.JSON(400, gin.H{"error": "Invalid picture ID"})
+		return
+	}
+
+	// Query the database for the picture name
+	var pictureName string
+	row := db.QueryRow("SELECT picture_name FROM pictures WHERE id = $1", id)
+	if err := row.Scan(&pictureName); err != nil {
+		c.JSON(404, gin.H{"error": "Picture not found"})
+		return
+	}
+
+	// Determine the file path based on OS
+	directory, err := os.Getwd()
+	if err != nil {
+		c.JSON(500, gin.H{"error": "Failed to determine working directory"})
+		return
+	}
+
+	var imageDirectory string
+	switch runtime.GOOS {
+	case "windows":
+		imageDirectory = fmt.Sprintf("%s\\frontend\\static\\images\\%s", directory, pictureName)
+	case "linux":
+		imageDirectory = fmt.Sprintf("%s/frontend/static/images/%s", directory, pictureName)
+	default:
+		c.JSON(500, gin.H{"error": "Unsupported operating system"})
+		return
+	}
+
+	// Delete the file
+	if err := os.Remove(imageDirectory); err != nil && !os.IsNotExist(err) {
+		c.JSON(500, gin.H{"error": "Failed to delete picture file"})
+		return
+	}
+
+	// Delete the database entry
+	_, err = db.Exec("DELETE FROM pictures WHERE id = $1", id)
+	if err != nil {
+		c.JSON(500, gin.H{"error": "Failed to delete picture record from database"})
+		return
+	}
+
+	// Success response
+	c.JSON(200, gin.H{"message": "Picture successfully deleted"})
 }

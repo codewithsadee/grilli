@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <!--Sweet alert-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +27,7 @@
     </style>
 </head>
 
-<body class="flex flex-row bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+<body class="flex flex-row bg-gray-100  text-gray-900 ">
 
     <!-- Loading Component -->
     <div id="loadingComponent" class="z-50 w-full h-full bg-black fixed opacity-50 flex items-center justify-center hidden">
@@ -36,32 +39,63 @@
 
     <!-- Add Video Component -->
     <div id="addVideoComponentLoading" class="z-50 w-full h-full bg-black fixed flex items-center justify-center hidden">
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl w-[450px] h-[600px] flex flex-col items-center justify-center space-y-6">
-            <h2 class="text-xl font-semibold text-center text-gray-800 dark:text-gray-100">Video Upload</h2>
-            <p class="text-sm text-center text-gray-600 dark:text-gray-400">Choose a video from your device to upload</p>
-            <input id="file_input" type="file" class="block w-full text-sm text-slate-500 dark:text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100" accept="video/*">
+        <div class="bg-white p-6 rounded-lg shadow-xl w-[450px] h-[750px] flex flex-col items-center justify-center space-y-6">
+            <h2 class="text-xl font-semibold text-center text-gray-800">Video Upload</h2>
+            <p class="text-sm text-center text-gray-600 dark:text-gray-400">Choose a video and thumbnail from your device to upload</p>
+    
+            <!-- Video Title Field -->
+            <input id="videoTitle" type="text" placeholder="Enter Video Title"
+                class="block w-full px-4 py-2 text-sm text-gray-800 bg-gray-100 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-violet-200">
+    
+            <!-- Video Upload Field Heading -->
+            <h3 class="text-lg font-medium text-gray-800 w-full text-left">Upload Video:</h3>
+            <input id="file_input" type="file"
+                class="block w-full text-sm text-slate-500 dark:text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100"
+                accept="video/*">
+    
+            <!-- Thumbnail Upload Field Heading -->
+            <h3 class="text-lg font-medium text-gray-800 w-full text-left">Upload Thumbnail:</h3>
+            <input id="thumbnailInput" type="file"
+                class="block w-full text-sm text-slate-500 dark:text-gray-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-violet-700 hover:file:bg-violet-100"
+                accept="image/*">
+    
+            <!-- Thumbnail Preview -->
+            <div id="thumbnailPreviewContainer" class="w-full flex flex-col items-center">
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Thumbnail Preview:</p>
+                <img id="thumbnailPreview" class="w-32 h-32 object-cover rounded-md border border-gray-300 hidden" alt="Thumbnail Preview">
+            </div>
+    
+            <!-- Buttons -->
             <div class="gap-4 flex w-full items-center justify-center">
-                <button id="closeButton" class="bg-red-300 hover:bg-red-400 text-gray-800 dark:text-gray-100 font-bold py-2 px-4 rounded transition duration-200">
+                <button id="closeButton" class="bg-red-300 hover:bg-red-400 text-gray-800 font-bold py-2 px-4 rounded transition duration-200">
                     Cancel
                 </button>
-                <button id="uploadButton" class="bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-100 font-bold py-2 px-4 rounded transition duration-200">
+                <button id="uploadButton"
+                    class="bg-gray-300 hover:bg-gray-400 dark:hover:bg-gray-700 text-gray-800 font-bold py-2 px-4 rounded transition duration-200">
                     Upload
                 </button>
             </div>
-            <div id="progressBar" class="h-[10px] w-full rounded-md">
-                <div id="progressBarFill"></div>
+    
+            <!-- Progress Bar -->
+            <div id="progressBar" class="h-[10px] w-full rounded-md bg-gray-200">
+                <div id="progressBarFill" class="h-full bg-violet-700 rounded-md"></div>
             </div>
         </div>
     </div>
+    
+    
 
     <!-- Sidebar -->
     <my-navbar></my-navbar>
+    <div id="popTarget" popover>
+        <a href="">Some</a><a href="">Some</a><a href="">Some</a><a href="">Some</a>
+    </div>
     <!-- Main Content -->
-    <main class="md:ml-72 h-screen w-full p-4 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <main class="md:ml-72 h-screen w-full p-4 bg-gray-100  text-gray-900 ">
         <h1 class="text-5xl font-bold">Video Manager</h1>
         <div class="w-full h-16 justify-between flex flex-row items-center pl-12 pr-12">
             <p>Total Videos <span id="total_videos" class="bg-blue-300 dark:bg-blue-500">-</span></p>
-            <button id="addVideo" type="button" class="bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-100 font-bold py-2 px-4 rounded">
+            <button id="addVideo" type="button" class="bg-gray-300 hover:bg-gray-400  dark:hover:bg-gray-700 text-gray-800  font-bold py-2 px-4 rounded">
                 <svg class="w-6 h-6 pr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7 7V5" />
                 </svg>
@@ -70,7 +104,7 @@
         </div>
         <div class="preview flex min-h-[350px] w-full justify-center p-10 items-center">
             <div class="relative w-full overflow-auto">
-                <table class="w-full text-sm bg-gray-100 dark:bg-gray-900">
+                <table class="w-full text-sm bg-gray-100 ">
                     <caption class="mt-4 text-sm text-muted-foreground dark:text-gray-400">A list of your available Videos.</caption>
                     <thead class="border-b dark:border-gray-700">
                         <tr class="border-b dark:border-gray-700">
