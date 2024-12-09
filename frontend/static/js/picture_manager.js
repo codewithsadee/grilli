@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             picture_container.classList.add('picture-container');
             picture_container.innerHTML = `
 
-            <div class="imgs">
+            <div class="imgs rounded-md z-10 shadow-md">
             <img alt="${value.id.toString()}" loading="lazy" src="${value.url_link}">
             </div>
             <div class="w-full flex h-16 justify-center items-center">
