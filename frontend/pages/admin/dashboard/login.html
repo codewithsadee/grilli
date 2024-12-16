@@ -1,44 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/frontend/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/auth.js" type="module"></script>
     <script src="/static/index.js"></script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
-<main style="background-color: #333333"  class="">
+<main>
+    <div class="flex flex-col items-center justify-center h-screen">
+        <h1 class="text-4xl font-bold pb-10">Login</h1>
+        <form class="login-form">
+            <h2 class="font-bold text-2xl">Login to Continue</h2>
+            <input class="h-14 p-2" placeholder="Email" type="email" name="email" id="email">
+            <input class="h-14 p-2" placeholder="Password"  type="password" name="password" id="password">
+            <button type="button" id="submit"  class="login-button bg-black hover:bg-gray-800 text-white font-bold py-2 px-4 rounded"><span>
+                    <div class="loader"></div>
+                </span></button>
+        </form>
 
-
-
-    <div class="flex items-center justify-center min-h-screen bg-gray-100">
-        <div class="w-full max-w-md">
-            <h1 class="text-3xl font-bold text-center mb-6">Login</h1>
-            <div class="rounded-lg border bg-card text-card-foreground shadow-sm" data-v0-t="card">
-                <div class="flex flex-col space-y-1.5 p-6">
-                    <h3 class="text-2xl font-semibold leading-none tracking-tight">Login to your account</h3>
-                </div>
-                <form>
-                    <div class="p-6 pt-0 space-y-4"><div class="space-y-2">
-                        <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="email">Email</label>
-                        <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0
-                        file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none
-                         focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                               id="email" placeholder="Enter your email" required="" type="email" value="">
-                    </div>
-                        <div class="space-y-2">
-                            <label class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="password">Password</label>
-                            <input class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" id="password" placeholder="Enter your password" required="" type="password" value="">
-                        </div>
-                    </div>
-                    <div class="flex items-center p-6 pt-0">
-                        <button id="login-button" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full" type="button">
-                            Login</button></div>
-                </form>
-            </div>
-        </div>
     </div>
+
+
+
+
 </main>
+
 </html>

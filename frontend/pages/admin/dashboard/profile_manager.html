@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="/static/js/profile_manager.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Manager</title>
+</head>
+<body class="bg-gray-100">
+
+    
+    <header  class="fixed w-full z-50 h-[100px] bg-white shadow-md  flex items-center gap-4 px-4">
+
+        <button type="button" id="backButton" class="">Back</button>
+
+        <div>
+        <h1 class="font-bold text-3xl">Account Manager</h1>
+        <p class="text-sm font-light">Manage Your Account Settings and Preferences</p>
+        </div>
+    </header>
+       
+    <main class=" pt-[130px]">
+      <!-- Loading Component -->
+      <div id="loadingComponent"
+      class="z-50 w-full h-full bg-black fixed opacity-50 flex items-center justify-center hidden">
+      <div class="items-center flex flex-col justify-center h-20 w-20">
+          <div class="h-12 w-2 bg-blue-500 rounded-full animate-spin"></div>
+          <p class="font-bold text-blue-500">Loading ...</p>
+      </div>
+ </div>
+
+        <section class="p-10 border-2 m-10 bg-white shadow-md">
+            <div class="pb-5">
+                <p class="text-2xl font-bold">Personal Info</p>
+                <p class="text-sm font-light">Edit your personal information below</p>
+            </div>
+            <form> 
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                    <div class="flex flex-col">
+
+                        <label for="first_name">First Name</label>
+                        <input class="h-10 p-2 border-2 rounded-md" type="email" name="email" id="first_name">
+                    </div>
+                    
+                    <div class="flex flex-col">
+
+                        <label for="email">Last Name</label>
+                        <input class="h-10 p-2 border-2 rounded-md" type="text" name="text" id="last_name">
+                    </div>
+                    
+                    <div class="flex flex-col">
+
+                        <label for="email">Email</label>
+                        <input class="h-10 p-2 border-2 rounded-md"  type="text" name="text" id="email">
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <button type="button" id="save_info" class="place-self-end bg-violet-500 hover:bg-violet-600 text-white font-bold py-2 px-4 rounded">Save</button>
+                    
+                </div>
+                
+            </form>
+
+        </section>
+
+        <section class="p-10 border-2 m-10 bg-white shadow-md">
+            <div class="pb-5">
+                <p class="text-2xl font-bold">Security Info</p>
+                <p class="text-sm font-light">Edit your security information below</p>
+            </div>
+            <form> 
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                    <div class="flex flex-col">
+
+                        <label for="password">Current Password</label>
+                        <input class="h-10 p-2 border-2 rounded-md" type="password" name="password" id="password">
+                    </div>
+                    
+                    <div class="flex flex-col">
+
+                        <label for="email">New Password</label>
+                        <input class="h-10 p-2 border-2 rounded-md" type="password" name="text" id="new_password">
+                        <p class="text-xs text-red-500 hidden" id="password_error1"> Passwords do not match</p>
+                    </div>
+                    
+                    <div class="flex flex-col">
+
+                        <label for="email">Confirm New Password</label>
+
+                        <input class="h-10 p-2 border-2  rounded-md"  type="password" name="text" id="confirm_new_password" >
+                        <p class="text-xs text-red-500 hidden" id="password_error2"> Passwords do not match</p>
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <button type="button" id="change_password" class="place-self-end bg-violet-500 hover:bg-violet-600 text-white font-bold py-2 px-4 rounded">Change Password</button>
+                    
+                </div>
+                
+            </form>
+
+        </section>
+
+
+    </main>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "pd923qg6l8");
+    </script>
+    
+    <script>
+        const backButton = document.getElementById('backButton');
+        backButton.addEventListener('click', (e) => {
+            e.preventDefault()
+            alert("Clicked")
+            window.history.back();
+        });
+    </script>
+</body>
+</html>

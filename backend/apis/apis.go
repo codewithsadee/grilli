@@ -47,7 +47,7 @@ func StartServer(dbportNumber int) error {
 
 	r.LoadHTMLFiles("./frontend/pages/admin/dashboard/picture_manager.html", "./frontend/pages/admin/dashboard/video_manager.html", "./frontend/pages/client/Landing.html",
 		"./frontend/pages/admin/dashboard/login.html", "./frontend/pages/admin/dashboard/event_manager.html",
-		"./frontend/pages/admin/dashboard/dashboard_index.html",
+		"./frontend/pages/admin/dashboard/dashboard_index.html", "./frontend/pages/admin/dashboard/profile_manager.html",
 	)
 
 	http.HandleFunc("/admin/login", func(w http.ResponseWriter, r *http.Request) {
@@ -68,30 +68,40 @@ func StartServer(dbportNumber int) error {
 
 	r.GET("/video/:id", StreamVideoHandler)
 	r.DELETE("/video/:id", deleteVideo)
-	r.GET("/video_manager", func(ctx *gin.Context) {
+	r.GET("/video_manager", auth.AuthMiddleware(), func(ctx *gin.Context) {
 		ctx.HTML(http.StatusOK, "video_manager.html", nil)
 	})
-	r.GET("/picture_manager", func(ctx *gin.Context) {
+	r.GET("/picture_manager", auth.AuthMiddleware(), func(ctx *gin.Context) {
 		ctx.HTML(http.StatusOK, "picture_manager.html", nil)
 	})
 
-	r.GET("/dashboard_index", func(ctx *gin.Context) {
+	r.GET("/profile_manager", auth.AuthMiddleware(), func(ctx *gin.Context) {
+
+		ctx.HTML(http.StatusOK, "profile_manager.html", nil)
+	})
+
+	r.GET("/dashboard_index", auth.AuthMiddleware(), func(ctx *gin.Context) {
 
 		ctx.HTML(http.StatusOK, "dashboard_index.html", nil)
 	})
 
-	r.GET("/event_manager", func(ctx *gin.Context) {
+	r.GET("/event_manager", auth.AuthMiddleware(), func(ctx *gin.Context) {
 		ctx.HTML(http.StatusOK, "event_manager.html", nil)
 	})
 
 	r.POST("/register", auth.Register(db))
-	r.POST("/login", auth.Login(db))
+	r.POST("/login", auth.Login(db), func(ctx *gin.Context) {
+
+	})
 
 	r.GET("/events", getEvents)
 	r.PATCH("/events", updateEvent)
 	r.POST("/events", createEvent)
 	r.DELETE("/events/:id", deleteEvent)
+	r.POST("/userDetails/:id", getUserDetails)
+	r.POST("/updateProfile", updateProfile)
 
+	r.POST("/updatePassword", updatePassword)
 	r.GET("/pictures", getPictures)
 
 	r.POST("/pictures", addPicture)
@@ -100,6 +110,7 @@ func StartServer(dbportNumber int) error {
 
 	r.POST("/uploadVideo", uploadVideo)
 
+	r.POST("/logout", logoutUser)
 	return http.ListenAndServe(":8080", r)
 
 }
@@ -593,4 +604,198 @@ func deletePicture(c *gin.Context) {
 
 	// Success response
 	c.JSON(200, gin.H{"message": "Picture successfully deleted"})
+}
+
+func logoutUser(c *gin.Context) {
+
+	// Clear specific cookies
+	c.SetCookie("Authorization", "", -1, "/", "", false, true)
+
+	c.JSON(200, gin.H{
+		"message": "User successfully logged out",
+	})
+}
+
+func getUserDetails(c *gin.Context) {
+
+	var userId int
+	var err error
+	userId, err = strconv.Atoi(c.Param("id"))
+
+	if err != nil {
+		c.JSON(400, gin.H{
+			"error": "invalid user id",
+		})
+		return
+	}
+
+	var user models.User
+	rows := db.QueryRow(`SELECT id, first_name, last_name, email, role FROM users WHERE id = $1`, userId)
+
+	if err = rows.Scan(&user.Id, &user.FirstName, &user.LastName, &user.Email, &user.Role); err != nil {
+		c.JSON(500, gin.H{
+			"error": err.Error(),
+		})
+
+	}
+	switch {
+	case err == sql.ErrNoRows:
+		c.JSON(404, gin.H{
+			"error": "user not found",
+		})
+		return
+
+	case err != nil:
+		c.JSON(500, gin.H{
+			"error": err.Error(),
+		})
+		return
+
+	}
+	user.Password = ""
+
+	c.JSON(200, gin.H{
+		"user": user,
+	})
+}
+
+func updateProfile(c *gin.Context) {
+
+	var user models.User
+
+	// Bind JSON input to the user struct
+	if err := c.BindJSON(&user); err != nil {
+		c.JSON(400, gin.H{
+			"error": "Invalid JSON input",
+		})
+		return
+	}
+
+	// Update user details in the database
+	_, err := db.Exec(
+		`UPDATE users SET first_name = $1, last_name = $2, email = $3 WHERE id = $4`,
+		user.FirstName, user.LastName, user.Email, user.Id)
+	if err != nil {
+		c.JSON(500, gin.H{
+			"error": err.Error(),
+		})
+		return
+	}
+
+	c.JSON(200, gin.H{
+		"message": "User details successfully updated",
+	})
+
+}
+
+func updatePassword(c *gin.Context) {
+	// Request struct with validation tags
+	type UpdatePasswordRequest struct {
+		Id          int    `json:"id" binding:"required,min=1"`
+		OldPassword string `json:"old_password" binding:"required,min=8,max=72"`
+		NewPassword string `json:"new_password" binding:"required,min=8,max=72"`
+	}
+
+	var updatePasswordRequest UpdatePasswordRequest
+
+	// Validate JSON input with detailed error handling
+	if err := c.ShouldBindJSON(&updatePasswordRequest); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error":   "Invalid input",
+			"details": err.Error(),
+		})
+		return
+	}
+
+	// Prevent password reuse
+	if updatePasswordRequest.OldPassword == updatePasswordRequest.NewPassword {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": "New password must be different from the old password",
+		})
+		return
+	}
+
+	// Retrieve current password from database
+	var currentHashedPassword string
+	err := db.QueryRow(
+		`SELECT password FROM users WHERE id = $1`,
+		updatePasswordRequest.Id,
+	).Scan(&currentHashedPassword)
+
+	if err != nil {
+		if err == sql.ErrNoRows {
+			c.JSON(http.StatusNotFound, gin.H{
+				"error": "User not found",
+			})
+		} else {
+			log.Printf("Database error retrieving user: %v", err)
+			c.JSON(http.StatusInternalServerError, gin.H{
+				"error": "Internal server error",
+			})
+		}
+		return
+	}
+
+	// Verify current password
+	if err := auth.VerifyPassword(updatePasswordRequest.OldPassword, currentHashedPassword); err != nil {
+		c.JSON(http.StatusUnauthorized, gin.H{
+			"error": "Invalid current password",
+		})
+		return
+	}
+
+	// Hash new password before storing
+	hashedNewPassword, err := auth.HashPassword(updatePasswordRequest.NewPassword)
+	if err != nil {
+		log.Printf("Password hashing error: %v", err)
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Unable to process new password",
+		})
+		return
+	}
+
+	// Update password in database with transaction
+	tx, err := db.Begin()
+	if err != nil {
+		log.Printf("Transaction start error: %v", err)
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Internal server error",
+		})
+		return
+	}
+	defer tx.Rollback() // Rollback in case of any error
+
+	_, err = tx.Exec(
+		`UPDATE users SET 
+			password = $1, 
+			last_password_change = CURRENT_TIMESTAMP 
+		WHERE id = $2`,
+		hashedNewPassword,
+		updatePasswordRequest.Id,
+	)
+	if err != nil {
+		log.Printf("Password update error: %v", err)
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Failed to update password",
+		})
+		return
+	}
+
+	// Commit transaction
+	if err := tx.Commit(); err != nil {
+		log.Printf("Transaction commit error: %v", err)
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Failed to complete password update",
+		})
+		return
+	}
+
+	// Log password change event (optional but recommended)
+	go func() {
+		log.Printf("Password changed for user ID: %d", updatePasswordRequest.Id)
+	}()
+
+	c.JSON(http.StatusOK, gin.H{
+		"message": "Password successfully updated",
+	})
 }

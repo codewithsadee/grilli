@@ -3,9 +3,16 @@ import { getPictures, uploadPicture, deletePicture } from "./picture_manager_con
 document.addEventListener('DOMContentLoaded', async () => {
 
 
+    const username = document.getElementById('username');
+    username.innerText = localStorage.getItem('userName');
+
+    const logout = document.getElementById('logout');
+
+
     const loadingComponent = document.getElementById('loadingComponent');
 
     loadingComponent.classList.remove('hidden');
+
     const totalPictures = document.getElementById('total_Pictures');
     const pictureGrid = document.getElementById('pictureGrid');
     const imageInput = document.getElementById('image-upload');
@@ -202,6 +209,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     addPicture.addEventListener('click', () => {
 
         imagePreviewContainer.classList.remove('hidden');
+    })
+
+    logout.addEventListener('click', async () => {
+
+        localStorage.removeItem('token');
+        localStorage.removeItem('userId');
+        localStorage.removeItem('userRole');
+        localStorage.removeItem('userName');
+        //Delete all cookies
+       
+        const response = await fetch('/logout', { method: 'POST' });
+        if(!response.ok){
+            throw new Error(response.statusText)
+        }
+        else {
+            response.json().then(data => {
+                console.log(data);
+                window.location.href = '/login';
+            })
+        }
+        
     })
 
 })

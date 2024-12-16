@@ -8,6 +8,9 @@ const editformComponent = document.getElementById("formComponent")
 const eventForm = document.getElementById("eventForm")
 document.addEventListener('DOMContentLoaded', async () => {
 
+    const username = document.getElementById('username');
+    username.innerText = localStorage.getItem('userName');
+
 
     loadingState.classList.remove("hidden")
 

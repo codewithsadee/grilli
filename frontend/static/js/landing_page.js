@@ -3,6 +3,10 @@ import { getVideos } from "./video_manager_controller.js";
 import {getPictures} from "./picture_manager_controller.js";
 
 document.addEventListener('DOMContentLoaded', async () => {
+
+    const username = document.getElementById('username');
+    username.innerText = localStorage.getItem('userName'); 
+    
     const video_list = document.getElementById("video-list");
     const video_player = document.getElementById("videos");
     let video_player_true = document.getElementById("videoplayer")
@@ -31,6 +35,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Process events
         if (!eventData.events || eventData.events.length === 0) {
             console.warn("No events available");
+            const event_message = document.createElement('p')
+            pictureGrid.innerText =' Check again later for Events'
         } else {
             console.log("Event Data:", eventData.events);
             eventData.events.forEach((value) => {
