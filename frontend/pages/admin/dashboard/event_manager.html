@@ -26,152 +26,152 @@
     </style>
 </head>
 
-<body class="flex flex-row bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+<body class="flex flex-row bg-gray-100  text-gray-900 ">
 
-    <!-- Loading Component -->
-    <div id="loadingComponent" class="z-50 w-full h-full bg-black fixed opacity-50 flex items-center justify-center hidden">
-        <div class="items-center flex flex-col justify-center h-20 w-20">
-            <div class="h-12 w-2 bg-blue-500 rounded-full animate-spin"></div>
-            <p class="font-bold text-blue-500">Loading ...</p>
-        </div>
+<!-- Loading Component -->
+<div id="loadingComponent" class="z-50 w-full h-full bg-black fixed opacity-50 flex items-center justify-center hidden">
+    <div class="items-center flex flex-col justify-center h-20 w-20">
+        <div class="h-12 w-2 bg-blue-500 rounded-full animate-spin"></div>
+        <p class="font-bold text-blue-500">Loading ...</p>
     </div>
+</div>
 
-    <div id="formComponent" class="z-50 w-full h-full bg-black fixed flex items-center justify-center hidden ">
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl w-[450px] h-[600px] flex flex-col items-center justify-center space-y-6">
-            <!-- Form Title -->
-            <h2 class="text-xl font-semibold text-center text-gray-800 dark:text-gray-100">Event Form</h2>
-            <p class="text-sm text-center text-gray-600 dark:text-gray-400">Fill out the details to create a new event</p>
-            
-            <!-- Form Content -->
-            <form id="editEventForm" class="w-full flex flex-col space-y-4">
-                <!-- Event Name Input -->
-                <div class="w-full">
-                    <label for="eventName" class="block text-gray-700 dark:text-gray-300 text-sm font-medium">Event Name</label>
-                    <input id="eventName" type="text" class="block w-full mt-1 p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-violet-500 focus:border-violet-500" placeholder="Enter event name" required>
-                </div>
-    
-                <!-- Event Date Input -->
-                <div class="w-full">
-                    <label for="eventDate" class="block text-gray-700 dark:text-gray-300 text-sm font-medium">Event Date</label>
-                    <input id="eventDate" type="date" class="block w-full mt-1 p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-violet-500 focus:border-violet-500" required>
-                </div>
-    
-                <!-- Event Description Input -->
-                <div class="w-full">
-                    <label for="eventDescription" class="block text-gray-700 dark:text-gray-300 text-sm font-medium">Event Description</label>
-                    <textarea id="eventDescription" rows="4" class="block w-full mt-1 p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-violet-500 focus:border-violet-500" placeholder="Enter a brief description" required></textarea>
-                </div>
-    
-                <!-- Submit Button -->
-                <div class="w-full flex gap-4 justify-center">
-                    <button type="reset" id="cancelButton" class="bg-red-300 hover:bg-red-400 text-gray-800 dark:text-gray-100 font-bold py-2 px-4 rounded transition duration-200">
-                        Cancel
-                    </button>
-                    <button type="button" id="submitButton" class="bg-violet-500 hover:bg-violet-600 text-white font-bold py-2 px-4 rounded transition duration-200">
-                        Submit
-                    </button>
-                </div>
-            </form>
-    
-            <!-- Loading State -->
-            <div id="loadingState" class="hidden w-full flex items-center justify-center">
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl w-[200px] h-[100px] flex items-center justify-center space-y-4">
-                    <span class="text-lg text-gray-800 dark:text-gray-100">Submitting...</span>
-                    <div class="w-16 h-2 bg-gray-300 dark:bg-gray-600 rounded-full overflow-hidden">
-                        <div id="loadingProgress" class="h-full bg-violet-500"></div>
-                    </div>
+<div id="formComponent" class="z-50 w-full h-full bg-black fixed flex items-center justify-center hidden ">
+    <div class="bg-white  p-6 rounded-lg shadow-xl w-[450px] h-[600px] flex flex-col items-center justify-center space-y-6">
+        <!-- Form Title -->
+        <h2 class="text-xl font-semibold text-center text-gray-800 ">Event Form</h2>
+        <p class="text-sm text-center text-gray-600 ">Fill out the details to create a new event</p>
+
+        <!-- Form Content -->
+        <form id="editEventForm" class="w-full flex flex-col space-y-4">
+            <!-- Event Name Input -->
+            <div class="w-full">
+                <label for="eventName" class="block text-gray-700  text-sm font-medium">Event Name</label>
+                <input id="eventName" type="text" class="block w-full mt-1 p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white  text-gray-800  placeholder-gray-500 dark:placeholder-gray-400 focus:ring-violet-500 focus:border-violet-500" placeholder="Enter event name" required>
+            </div>
+
+            <!-- Event Date Input -->
+            <div class="w-full">
+                <label for="eventDate" class="block text-gray-700  text-sm font-medium">Event Date</label>
+                <input id="eventDate" type="date" class="block w-full mt-1 p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white  text-gray-800  placeholder-gray-500 dark:placeholder-gray-400 focus:ring-violet-500 focus:border-violet-500" required>
+            </div>
+
+            <!-- Event Description Input -->
+            <div class="w-full">
+                <label for="eventDescription" class="block text-gray-700  text-sm font-medium">Event Description</label>
+                <textarea id="eventDescription" rows="4" class="block w-full mt-1 p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white  text-gray-800  placeholder-gray-500 dark:placeholder-gray-400 focus:ring-violet-500 focus:border-violet-500" placeholder="Enter a brief description" required maxlength="60"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="w-full flex gap-4 justify-center">
+                <button type="reset" id="cancelButton" class="bg-red-300 hover:bg-red-400 text-gray-800  font-bold py-2 px-4 rounded transition duration-200">
+                    Cancel
+                </button>
+                <button type="button" id="submitButton" class="bg-violet-500 hover:bg-violet-600 text-white font-bold py-2 px-4 rounded transition duration-200">
+                    Submit
+                </button>
+            </div>
+        </form>
+
+        <!-- Loading State -->
+        <div id="uploadState" class="hidden w-full flex items-center justify-center">
+            <div class="bg-white  p-6 rounded-lg shadow-xl w-[200px] h-[100px] flex items-center justify-center space-y-4">
+                <span class="text-lg text-gray-800 ">Submitting...</span>
+                <div class="w-16 h-2 bg-gray-300  rounded-full overflow-hidden">
+                    <div id="uploadProgress" class="h-full bg-violet-500"></div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!--Editing the current Fevent Clicked-->
-    <div id="editformComponent" class="z-50 w-full h-full bg-black fixed flex items-center justify-center hidden ">
-        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl w-[450px] h-[600px] flex flex-col items-center justify-center space-y-6">
-            <!-- Form Title -->
-            <h2 class="text-xl font-semibold text-center text-gray-800 dark:text-gray-100">Event Form</h2>
-            <p class="text-sm text-center text-gray-600 dark:text-gray-400">Fill out the details to create a new event</p>
-            
-            <!-- Form Content -->
-            <form id="editEventForm" class="w-full flex flex-col space-y-4">
-                <!-- Event Name Input -->
-                <div class="w-full">
-                    <label for="editEventName" class="block text-gray-700 dark:text-gray-300 text-sm font-medium">Event Name</label>
-                    <input id="editEventName" type="text" class="block w-full mt-1 p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-violet-500 focus:border-violet-500" placeholder="Enter event name" required>
-                </div>
-    
-                <!-- Event Date Input -->
-                <div class="w-full">
-                    <label for="editEventDate" class="block text-gray-700 dark:text-gray-300 text-sm font-medium">Event Date</label>
-                    <input id="editEventDate" type="date" class="block w-full mt-1 p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-violet-500 focus:border-violet-500" required>
-                </div>
-    
-                <!-- Event Description Input -->
-                <div class="w-full">
-                    <label for="editEventDescription" class="block text-gray-700 dark:text-gray-300 text-sm font-medium">Event Description</label>
-                    <textarea id="editEventDescription" rows="4" class="block w-full mt-1 p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:ring-violet-500 focus:border-violet-500" placeholder="Enter a brief description" required></textarea>
-                </div>
-    
-                <!-- Submit Button -->
-                <div class="w-full flex gap-4 justify-center">
-                    <button type="reset" id="cancelButton" class="bg-red-300 hover:bg-red-400 text-gray-800 dark:text-gray-100 font-bold py-2 px-4 rounded transition duration-200">
-                        Cancel
-                    </button>
-                    <button type="button" id="submitButton" class="bg-violet-500 hover:bg-violet-600 text-white font-bold py-2 px-4 rounded transition duration-200">
-                        Submit
-                    </button>
-                </div>
-            </form>
-    
-            <!-- Loading State -->
-            <div id="loadingState" class="hidden w-full flex items-center justify-center">
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-xl w-[200px] h-[100px] flex items-center justify-center space-y-4">
-                    <span class="text-lg text-gray-800 dark:text-gray-100">Submitting...</span>
-                    <div class="w-16 h-2 bg-gray-300 dark:bg-gray-600 rounded-full overflow-hidden">
-                        <div id="loadingProgress" class="h-full bg-violet-500"></div>
-                    </div>
+<!--Editing the current Fevent Clicked-->
+<div id="editformComponent" class="z-50 w-full h-full bg-black fixed flex items-center justify-center hidden ">
+    <div class="bg-white  p-6 rounded-lg shadow-xl w-[450px] h-[600px] flex flex-col items-center justify-center space-y-6">
+        <!-- Form Title -->
+        <h2 class="text-xl font-semibold text-center text-gray-800 ">Event Form</h2>
+        <p class="text-sm text-center text-gray-600 ">Fill out the details to create a new event</p>
+
+        <!-- Form Content -->
+        <form id="editEventForm" class="w-full flex flex-col space-y-4">
+            <!-- Event Name Input -->
+            <div class="w-full">
+                <label for="editEventName" class="block text-gray-700  text-sm font-medium">Event Name</label>
+                <input id="editEventName" type="text" class="block w-full mt-1 p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white  text-gray-800  placeholder-gray-500 dark:placeholder-gray-400 focus:ring-violet-500 focus:border-violet-500" placeholder="Enter event name" required>
+            </div>
+
+            <!-- Event Date Input -->
+            <div class="w-full">
+                <label for="editEventDate" class="block text-gray-700  text-sm font-medium">Event Date</label>
+                <input id="editEventDate" type="date" class="block w-full mt-1 p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white  text-gray-800  placeholder-gray-500 dark:placeholder-gray-400 focus:ring-violet-500 focus:border-violet-500" required>
+            </div>
+
+            <!-- Event Description Input -->
+            <div class="w-full">
+                <label for="editEventDescription" class="block text-gray-700  text-sm font-medium">Event Description</label>
+                <textarea id="editEventDescription" rows="4" class="block w-full mt-1 p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white  text-gray-800  placeholder-gray-500 dark:placeholder-gray-400 focus:ring-violet-500 focus:border-violet-500" placeholder="Enter a brief description" required></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="w-full flex gap-4 justify-center">
+                <button type="reset" id="cancelButton" class="bg-red-300 hover:bg-red-400 text-gray-800  font-bold py-2 px-4 rounded transition duration-200">
+                    Cancel
+                </button>
+                <button type="button" id="submitButton" class="bg-violet-500 hover:bg-violet-600 text-white font-bold py-2 px-4 rounded transition duration-200">
+                    Submit
+                </button>
+            </div>
+        </form>
+
+        <!-- Loading State -->
+        <div id="loadingState" class="hidden w-full flex items-center justify-center">
+            <div class="bg-white  p-6 rounded-lg shadow-xl w-[200px] h-[100px] flex items-center justify-center space-y-4">
+                <span class="text-lg text-gray-800 ">Submitting...</span>
+                <div class="w-16 h-2 bg-gray-300  rounded-full overflow-hidden">
+                    <div id="loadingProgress" class="h-full bg-violet-500"></div>
                 </div>
             </div>
         </div>
     </div>
-    
-    
+</div>
 
-     <!-- Sidebar -->
-    <my-navbar></my-navbar>
 
-    <!-- Main Content -->
-    <main class="md:ml-72 h-screen w-full p-4 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-        <h1 class="text-5xl font-bold">Event Manager</h1>
-        <div id="addEvent" class="w-full h-16 justify-between flex flex-row items-center pl-12 pr-12">
-            <p>Total Events <span id="total_Events" class="bg-blue-300 dark:bg-blue-500">-</span></p>
-            <button id="addEvent" type="button" class="bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-100 font-bold py-2 px-4 rounded">
-                <svg class="w-6 h-6 pr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7 7V5" />
-                </svg>
-                <span>Add Event</span>
-            </button>
+
+  <!-- Sidebar -->
+  <my-navbar></my-navbar>
+
+<!-- Main Content -->
+<main class="md:ml-72 h-screen w-full p-4 bg-gray-100  text-gray-900 ">
+    <h1 class="text-5xl font-bold">Event Manager</h1>
+    <div id="addEvent" class="w-full h-16 justify-between flex flex-row items-center pl-12 pr-12">
+        <p>Total Events <span id="total_Events" class="bg-blue-300 dark:bg-blue-500">-</span></p>
+        <button id="addEvent" type="button" class="bg-gray-300 hover:bg-gray-400 flex flex-row  dark:hover:bg-gray-700 text-gray-800  font-bold py-2 px-4 rounded">
+            <svg class="w-6 h-6 pr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7 7V5" />
+            </svg>
+            <span>Add Event</span>
+        </button>
+    </div>
+    <div class="preview flex min-h-[350px] w-full justify-center p-10 items-center">
+        <div class="relative w-full overflow-auto">
+            <table class="w-full text-sm bg-gray-100 ">
+                <caption class="mt-4 text-sm text-muted-foreground ">A list of your available Events.</caption>
+                <thead class="border-b dark:border-gray-700">
+                <tr class="border-b dark:border-gray-700">
+                    <th class="h-12 px-4 text-left font-medium">Event Title</th>
+                    <th class="h-12 px-4 text-left font-medium">Event Description</th>
+                    <th class="h-12 px-4 text-left font-medium">Event Date</th>
+                    <th class="h-12 px-4 text-right font-medium">Actions</th>
+                </tr>
+                </thead>
+                <tbody id="table_body">
+                <!-- Dynamic Rows -->
+                </tbody>
+            </table>
         </div>
-        <div class="preview flex min-h-[350px] w-full justify-center p-10 items-center">
-            <div class="relative w-full overflow-auto">
-                <table class="w-full text-sm bg-gray-100 dark:bg-gray-900">
-                    <caption class="mt-4 text-sm text-muted-foreground dark:text-gray-400">A list of your available Events.</caption>
-                    <thead class="border-b dark:border-gray-700">
-                        <tr class="border-b dark:border-gray-700">
-                            <th class="h-12 px-4 text-left font-medium">Event Title</th>
-                            <th class="h-12 px-4 text-left font-medium">Event Description</th>
-                            <th class="h-12 px-4 text-left font-medium">Event Date</th>
-                            <th class="h-12 px-4 text-right font-medium">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="table_body">
-                        <!-- Dynamic Rows -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 </body>
 

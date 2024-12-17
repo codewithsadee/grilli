@@ -1,434 +1,185 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- 
-    - primary meta tags
-  -->
-  <title>Wiity Foods- By The Zikos</title>
-  <meta name="title" content="Grilli - Amazing & Delicious Food">
-  <meta name="description" content="This is a Restaurant html template made by codewithsadee">
-
-  <!-- 
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
-
-  <!-- 
-    - google font link
-  -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script type="module" src="/static/js/landing_page.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
-
-  <!-- 
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./static/css/style.css">
-
-  <!-- 
-    - preload images
-  -->
-  <link rel="preload" as="image" href="./static/images/hero-slider-1.jpg">
-  <link rel="preload" as="image" href="./static/images/hero-slider-2.jpg">
-  <link rel="preload" as="image" href="./static/images/hero-slider-3.jpg">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/landing_page.css">
+    <script src="/static/js/tailwind.config.js"> </script>
+    <script type="module" src="/static/js/landing_page.js"> </script>
+   
+    <link rel="preload" as="image" href="./static/images/hero-slider-1.jpg">
+    <link rel="preload" as="image" href="./static/images/hero-slider-2.jpg">
+    <link rel="preload" as="image" href="./static/images/hero-slider-3.jpg">
+    <title>Document</title>
 </head>
 
-<body id="top">
+<body>
 
-  <!-- 
-    - #PRELOADER
-  -->
+    <header id="navbar" class="fixed w-full z-50 h-[100px] header-container p-3">
 
-  <div class="preload" data-preaload>
-    <div class="circle"></div>
-    <p class="text">COOKING WITH THE ZIKOS</p>
-  </div>
 
+        <nav class=" flex justify-between items-center py-4">
 
-
-
-
-  <!-- 
-    - #TOP BAR
-  -->
-
-  <div class="topbar">
-    <div class="container">
-
-      <address class="topbar-item">
-        <div class="icon">
-          <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
-        </div>
-
-        <span class="span">
-           Ibex Hill, Lusaka, Zambia  
-        </span>
-      </address>
-
-      <div class="separator"></div>
-
-      <div class="topbar-item item-2">
-        <div class="icon">
-          <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
-        </div>
-
-        <span class="span">Daily : 8.00 am to 10.00 pm</span>
-      </div>
-
-      <a href="tel:+11234567890" class="topbar-item link">
-        <div class="icon">
-          <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
-        </div>
-
-        <span class="span">+260954047633/0979816832
-            /0972962474</span>
-      </a>
-
-      <div class="separator"></div>
-
-      <a href="mailto:cookingwiththezikos@gmail.com" class="topbar-item link">
-        <div class="icon">
-          <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
-        </div>
-
-        <span class="span">cookingwiththezikos@gmail.com</span>
-      </a>
-
-    </div>
-  </div>
-
-
-
-
-
-  <!-- 
-    - #HEADER
-  -->
-
-  <header class="header" data-header>
-    <div class="container">
-
-      <a href="#" class="logo">
-        <img src="./static/images/witty.png" width="160" height="50" alt="Grilli - Home">
-      </a>
-
-      <nav class="navbar" data-navbar>
-
-        <button class="close-btn" aria-label="close menu" data-nav-toggler>
-          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
-        </button>
-
-        <a href="#" class="logo">
-          <img src="./static/images/witty.png" width="160" height="50" alt="Grilli - Home">
-        </a>
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <a href="#home" class="navbar-link hover-underline active">
-              <div class="separator"></div>
-
-              <span class="span">Home</span>
-            </a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#menu" class="navbar-link hover-underline">
-              <div class="separator"></div>
-
-              <span class="span">Menus</span>
-            </a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#menu" class="navbar-link hover-underline">
-              <div class="separator"></div>
-
-              <span class="span">Services</span>
-            </a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#about" class="navbar-link hover-underline">
-              <div class="separator"></div>
-
-              <span class="span">About Us</span>
-            </a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#" class="navbar-link hover-underline">
-              <div class="separator"></div>
-
-              <span class="span">Our Chefs</span>
-            </a>
-          </li>
-
-          <li class="navbar-item">
-            <a href="#" class="navbar-link hover-underline">
-              <div class="separator"></div>
-
-              <span class="span">Contact</span>
-            </a>
-          </li>
-
-        </ul>
-
-        <div class="text-center">
-          <p class="headline-1 navbar-title">Visit Us</p>
-
-          <address class="body-4">
-            Ibex Hill, Lusaka, Zambia  <br>
-           
-          </address>
-
-          <p class="body-4 navbar-text">Open: 9.30 am - 2.30pm</p>
-
-          <a href="mailto:booking@grilli.com" class="body-4 sidebar-link">booking@wittyfoods.com</a>
-
-          <div class="separator"></div>
-
-          <p class="contact-label">Booking Request</p>
-
-          <a href="tel:+260954047633" class="body-1 contact-number hover-underline">
-            +260954047633
-          </a>
-        </div>
-
-      </nav>
-<!---
-      <a href="#" class="btn btn-secondary">
-        <span class="text text-1">Find A Table</span>
-
-        <span class="text text-2" aria-hidden="true">Find A Table</span>
-      </a>----->
-
-      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-        <span class="line line-1"></span>
-        <span class="line line-2"></span>
-        <span class="line line-3"></span>
-      </button>
-
-      <div class="overlay" data-nav-toggler data-overlay></div>
-
-    </div>
-  </header>
-
-
-
-
-
-  <main>
-    <article>
-
-      <!-- 
-        - #HERO
-      -->
-
-      <section class="hero text-center" aria-label="home" id="home">
-
-        <ul class="hero-slider" data-hero-slider>
-
-          <li class="slider-item active" data-hero-slider-item>
-
-            <div class="slider-bg">
-              <img src="./static/images/hero-slider-1.jpg" width="1880" height="950" alt="" class="img-cover">
+            <div>
+                <img class="w-[100px]" src="/static/images/witty.png" alt="">
             </div>
+            <ul class="flex gap-4 text-white">
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+                <li>
+                    <a href="#videos">Video Gallery</a>
+                </li>
+                <li>
+                    <a href="#events">Upcoming Events</a>
+                </li>
+                <li>
+                    <a href="#pictures">Picture Gallery</a>
+                </li>
 
-            <p class="label-2 section-subtitle slider-reveal">Tradational & Hygine</p>
-
-            <h1 class="display-1 hero-title slider-reveal">
-              For the Love of <br>
-              delicious food
-            </h1>
-
-            <p class="body-2 hero-text slider-reveal">
-              Come with family & feel the joy of mouthwatering food
-            </p>
-
-            <a href="#" class="btn btn-primary slider-reveal">
-              <span class="text text-1">View Our Menu</span>
-
-              <span class="text text-2" aria-hidden="true">View Our Menu</span>
-            </a>
-
-          </li>
-
-          <li class="slider-item" data-hero-slider-item>
-
-            <div class="slider-bg">
-              <img src="./static/images/hero-slider-2.jpg" width="1880" height="950" alt="" class="img-cover">
-            </div>
-
-            <p class="label-2 section-subtitle slider-reveal">delightful experience</p>
-
-            <h1 class="display-1 hero-title slider-reveal">
-              Flavors Inspired by <br>
-              the Seasons
-            </h1>
-
-            <p class="body-2 hero-text slider-reveal">
-              Come with family & feel the joy of mouthwatering food
-            </p>
-
-            <a href="#" class="btn btn-primary slider-reveal">
-              <span class="text text-1">View Our Menu</span>
-
-              <span class="text text-2" aria-hidden="true">View Our Menu</span>
-            </a>
-
-          </li>
-
-          <li class="slider-item" data-hero-slider-item>
-
-            <div class="slider-bg">
-              <img src="./static/images/hero-slider-3.jpg" width="1880" height="950" alt="" class="img-cover">
-            </div>
-
-            <p class="label-2 section-subtitle slider-reveal">amazing & delicious</p>
-
-            <h1 class="display-1 hero-title slider-reveal">
-              Where every flavor <br>
-              tells a story
-            </h1>
-
-            <p class="body-2 hero-text slider-reveal">
-              Come with family & feel the joy of mouthwatering food
-            </p>
-
-            <a href="#" class="btn btn-primary slider-reveal">
-              <span class="text text-1">View Our Menu</span>
-
-              <span class="text text-2" aria-hidden="true">View Our Menu</span>
-            </a>
-
-          </li>
-
-        </ul>
-
-        <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
-          <ion-icon name="chevron-back"></ion-icon>
-        </button>
-
-        <button class="slider-btn next" aria-label="slide to next" data-next-btn>
-          <ion-icon name="chevron-forward"></ion-icon>
-        </button>
-
-        <a href="inderx.html" class="hero-btn has-after">
-          <img src="./static/images/hero-icon.png" width="48" height="48" alt="booking icon">
-
-          <span class="label-2 text-center span">Witty Foods</span>
-        </a>
-
-      </section>
-
-
-
-
-
-    
+            </ul>
+        </nav>
+    </header>
+    <main>
+      <article>
+    <section id="home" class="hero h-screen relative bg-black">
+        <!-- Hero Image -->
+        <img
+          id="slider"
+          class="absolute inset-0 object-cover w-full h-full fade-image"
+          src="/static/images/hero-slider-1.jpg"
+          alt="Delicious Food"
+        />
       
-       
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
       
-
-
-
-
-    
-      <section id="video_container" class="h-full md:h-[620px] w-full  flex flex-col md:flex-row gap-4 pl-20 pr-20 pt-2">
-
-        <!-- Video Player Section -->
-        <div class="flex-1 p-2">
-          <div class="relative w-full aspect-w-16 aspect-h-6">
-            <video  id="video_player" style="height: 80vh; width: 100%;" controls>
-              
-              Your browser does not support the video tag.
-            </video>
+        <!-- Content -->
+        <div class="relative z-10 flex flex-col items-center justify-center text-center h-full text-white px-4">
+          <h1 class="text-4xl sm:text-6xl font-bold leading-tight">
+            Welcome to Zikos Website
+          </h1>
+          <p class="mt-4 text-lg sm:text-xl max-w-xl">
+            Experience the finest dining with our chef-crafted menu, featuring
+            fresh and locally sourced ingredients.
+          </p>
+          <div class="mt-6 space-x-4">
+            <a
+              href="#menu"
+              class="px-6 py-3 bg-red-600 hover:bg-red-700 rounded-lg text-white font-medium text-lg"
+            >
+              Explore Menu
+            </a>
+            <a
+              href="#reservation"
+              class="px-6 py-3 bg-white text-red-600 hover:bg-gray-200 rounded-lg font-medium text-lg"
+            >
+              Make a Reservation
+            </a>
           </div>
         </div>
-      
-        <!-- Video List Section -->
-        <div class="w-full md:w-[300px] space-y-4 overflow-y-auto">
-          <h2 class="text-xl font-semibold mb-4 text-white">Video List</h2>
-          <ul id="video_list" class="space-y-3">
-            
-           
-            <!-- Video List Will Be loaded Here -->
-          </ul>
-        </div>
-      </section>
-
-      <section class="pt-20 w-full h-screen ">
-        <p class="section-subtitle label-2 text-center text-3xl">Upcoming Events</p>
-
-        <div id="upcoming_events" class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
-
-         
-           
-        
-
-        </div>
       </section>
       
 
 
-      
-   
 
 
 
-  
+
+    <section id="videos" class="py-16 grid grid-container h-screen">
+
+        <div class="h-full w-full span-2">
+
+            <video id="videoplayer" class="h-full w-full" controls src="\videos\EP.124.v0.360p.mp4
+            "></video>
+
+        </div>
+        <div id="video-list" class="h-full w-full list-view-container">
+
+           
+
+        </div>
 
 
+    </section>
+    <section id="events-section" class="py-16">
+        <p class="section-subtitle text-center text-3xl font-bold">Upcoming Events</p>
+        <div id="events" class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 ">  
+        </div>
+    </section>
 
+    <section id="pictures" class="py-16">
+        <p class="section-subtitle text-center text-3xl font-bold">Our Signature Dishes</p>
+
+        <div id="pictureGrid" class="picture-grid">
+
+          
+        </div>
+
+    </section>
+
+      <!-- 
+    - #FOOTER
+  -->
+
+       <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer-section">
+    <h2 class="text-white text-center text-3xl font-bold py-4">Get In Touch</h2>
     
+    <div class="footer-grid">
+        <!-- Contact Details -->
+        <div class="footer-grid-item">
+            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#FFFFFF">
+                <path d="M796-120q-119 0-240-55.5T333-333Q231-435 175.5-556T120-796q0-18.86 12.57-31.43T164-840h147.33q14 0 24.34 9.83Q346-820.33 349.33-806l26.62 130.43q2.05 14.9-.62 26.24-2.66 11.33-10.82 19.48L265.67-530q24 41.67 52.5 78.5T381-381.33q35 35.66 73.67 65.5Q493.33-286 536-262.67l94.67-96.66q9.66-10.34 23.26-14.5 13.61-4.17 26.74-2.17L806-349.33q14.67 4 24.33 15.53Q840-322.27 840-308v144q0 18.86-12.57 31.43T796-120ZM233-592l76-76.67-21-104.66H187q3 41.66 13.67 86Q211.33-643 233-592Zm365.33 361.33q40.34 18.34 85.84 29.67 45.5 11.33 89.16 13.67V-288l-100-20.33-75 77.66ZM233-592Zm365.33 361.33Z" />
+            </svg>
+            <a href="tel:+260957657513">0957657513</a>
+        </div>
+        <!-- Email -->
+        <div class="footer-grid-item">
+            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#FFFFFF">
+                <path d="M146.67-160q-27 0-46.84-19.83Q80-199.67 80-226.67v-506.66q0-27 19.83-46.84Q119.67-800 146.67-800h666.66q27 0 46.84 19.83Q880-760.33 880-733.33v506.66q0 27-19.83 46.84Q840.33-160 813.33-160H146.67ZM480-454.67 146.67-670v443.33h666.66V-670L480-454.67Zm0-66.66 330.67-212H150l330 212ZM146.67-670v-63.33V-226.67-670Z" />
+            </svg>
+            <a href="mailto:booking@grilli.com">booking@grilli.com</a>
+        </div>
+        <!-- Location -->
+        <div class="footer-grid-item">
+            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#FFFFFF">
+                <path d="M480.06-486.67q30.27 0 51.77-21.56 21.5-21.55 21.5-51.83 0-30.27-21.56-51.77-21.55-21.5-51.83-21.5-30.27 0-51.77 21.56-21.5 21.55-21.5 51.83 0 30.27 21.56 51.77 21.55 21.5 51.83 21.5ZM480-168q129.33-118 191.33-214.17 62-96.16 62-169.83 0-114.86-73.36-188.1-73.36-73.23-179.97-73.23T300.03-740.1q-73.36 73.24-73.36 188.1 0 73.67 63 169.83Q352.67-286 480-168Zm0 88Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+            </svg>
+            <a href="#">Lusaka, Zambia</a>
+        </div>
+        <!-- WhatsApp -->
+        <div class="footer-grid-item">
+            <a href="https://wa.me/+260957657513">0957657513</a>
+        </div>
+    </div>
 
+    <!-- Quick Links Section -->
+    <div class="other-footer-grid">
+        <div class="p-16">
+            <h3 class="text-2xl pb-4">Quick Links</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#pictures">Pictures</a></li>
+            </ul>
+        </div>
+    </div>
 
+    <!-- Copyright -->
+    <div class="text-center text-gray-400 text-sm mt-8">
+        &copy; 2024 Zikos Restaurant. All rights reserved.
+    </div>
+</footer>
 
-
-
-
-
-  
-    </article>
-  </main>
-
-
-
-
-
-
-
-
-
-
-
- <!-- 
-    - #BACK TO TOP
-  -->
-
-  <a href="#top" class="back-top-btn active" aria-label="back to top" data-back-top-btn>
-    <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
-  </a>
-
-  <!-- 
-    - custom js link
-  -->
-  <script src="./static/js/script.js"></script>
-
-  <!-- 
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</article>
+</main>
+  <script src="/static/js/script.js"></script>
 
 </body>
 

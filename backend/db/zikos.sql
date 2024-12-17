@@ -14,3 +14,12 @@ CREATE TABLE IF NOT EXISTS events(
 
 );
 -- SELECT * FROM VIDEOS
+
+
+CREATE TABLE IF NOT EXISTS pictures(
+
+    id SERIAL PRIMARY KEY,
+    url_link VARCHAR(100) NOT NULL,
+    is_on_dash BOOLEAN
+     picture_name VARCHAR(100) NOT NULL,
+);

@@ -1,6 +1,6 @@
 import { getEvents, createEvent, updateEvents, deleteEvents } from "./event_manager_controller.js"
 
-const loadingState = document.getElementById("loadingState")
+const loadingState = document.getElementById("loadingComponent")
 const addEvent = document.getElementById("addEvent")
 const table_body = document.getElementById("table_body")
 const formComponent = document.getElementById("formComponent")
@@ -30,23 +30,22 @@ document.addEventListener('DOMContentLoaded', async () => {
                 "transition-colors",
                 "odd:bg-white",
                 "even:bg-slate-50",
-                "dark:odd:bg-gray-800",
-                "dark:even:bg-gray-700"
+
             );
             table_row.innerHTML = `
-                <td class="p-4 align-middle font-medium dark:text-white">${value["event_name"]}</td>
-                <td class="p-4 align-middle dark:text-gray-300">${value["date_of_event"]}</td>
-                <td class="p-4 align-middle dark:text-gray-300">${value["event_description"]}</td>
+                <td class="p-4 align-middle font-medium ">${value["event_name"]}</td>
+                <td class="p-4 align-middle ">${value["date_of_event"]}</td>
+                <td class="p-4 align-middle ">${value["event_description"]}</td>
                 <td class="p-4 align-middle text-right">
                     <div class="flex justify-end space-x-2 items-center">
                      
-                        <button id="editButton" type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white">
+                        <button id="editButton" type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center   ">
                             <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"/>
                             </svg>
                             <span class="sr-only">Edit</span>
                         </button>
-                        <button id="delete_event:id=${value["id"]}" type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white">
+                        <button id="delete_event:id=${value["id"]}" type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center   ">
                             <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"/>
                             </svg>
@@ -133,11 +132,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
         const eventObject =
-        {
-            "event_name": eventName,
-            "event_description": eventDescription,
-            "date_of_event": eventDate,
-        };
+            {
+                "event_name": eventName,
+                "event_description": eventDescription,
+                "date_of_event": eventDate,
+            };
 
 
         const eventJson = JSON.stringify(eventObject)
