@@ -105,9 +105,21 @@
 }
 
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 80% 20%; /* Desktop layout: video player and list side by side */
+ 
+  height: 100%; /* Ensure it occupies full height */
+}
 
-.grid-container{
-    grid-template-columns: 80% 20%;
+
+
+@media screen and (max-width: 600px) { 
+  .grid-container {
+      grid-template-rows: auto auto; /* Stack items vertically */
+      grid-template-columns: 100%; /* Single-column layout */
+      gap: 0.5rem; /* Reduce spacing for smaller screens */
+  }
 }
 
 .event-title{

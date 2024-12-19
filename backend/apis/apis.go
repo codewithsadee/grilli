@@ -26,7 +26,7 @@ func StartServer(dbportNumber int) error {
 	port := dbportNumber
 	user := "postgres"
 	password := "1590"
-	dbname := "TashFash"
+	dbname := "zikos"
 
 	conn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
 	db, err = sql.Open("postgres", conn)

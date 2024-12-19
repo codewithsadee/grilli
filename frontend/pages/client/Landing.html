@@ -87,21 +87,18 @@
 
 
 
-    <section id="videos" class="py-16 grid grid-container h-screen">
-
-        <div class="h-full w-full span-2">
-
-            <video id="videoplayer" class="h-full w-full" controls src="\videos\EP.124.v0.360p.mp4
-            "></video>
-
+      <section id="videos" class="py-16 grid grid-container h-screen">
+        <div class="video-player-container h-full w-full">
+            <video
+                id="videoplayer"
+                class="h-full w-full"
+                controls
+                src="/videos/EP.124.v0.360p.mp4"
+            ></video>
         </div>
         <div id="video-list" class="h-full w-full list-view-container">
-
-           
-
+            <!-- Add your video list here -->
         </div>
-
-
     </section>
     <section id="events-section" class="py-16">
         <p class="section-subtitle text-center text-3xl font-bold">Upcoming Events</p>
@@ -109,6 +106,22 @@
         </div>
     </section>
 
+
+    <section id="pictures_loading" class="py-16 hidden">
+      <p class="section-subtitle text-center text-3xl font-bold">Our Signature Dishes</p>
+
+      <div class="picture-grid grid-cols-3 grid">
+
+          <div class="pic-span-2 animate-pulse hover:shadow-md bg-white"></div>
+          <div class="bg-white animate-pulse"></div>
+          <div class="bg-white animate-pulse"></div>
+
+          <div class="bg-white animate-pulse"></div>
+          <div class="bg-white animate-pulse"></div>
+
+      </div>
+
+  </section>
     <section id="pictures" class="py-16">
         <p class="section-subtitle text-center text-3xl font-bold">Our Signature Dishes</p>
 
