@@ -158,15 +158,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             const formData = new FormData();
             formData.append('image', file);
 
-
-            const [data, err] = await uploadPicture(formData)
+            const [data, err] = await uploadPicture(formData);
             if (err != null) {
-
-                console.error(err)
+                console.error(err);
                 Toastify({
                     text: "Error uploading picture, please try again",
                     duration: 2000,
-
                     newWindow: true,
                     close: true,
                     gravity: "top", // `top` or `bottom`
@@ -178,7 +175,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                     onClick: function () { } // Callback after click
                 }).showToast();
             } else {
-
                 Toastify({
                     text: "Picture Uploaded Successfully",
                     duration: 2000,
@@ -193,16 +189,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                     onClick: function () { } // Callback after click
                 }).showToast();
 
-                setInterval(() => {
-
+                setTimeout(() => {
                     window.location.reload();
-                }, 1000);
-
+                }, 1000); // Reload the page after 1 second
             }
         }
-
-
-
     });
    
 
@@ -233,7 +224,3 @@ document.addEventListener('DOMContentLoaded', async () => {
     })
 
 })
-
-
-
-

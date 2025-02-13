@@ -64,7 +64,7 @@
 
             <!-- Submit Button -->
             <div class="w-full flex gap-4 justify-center">
-                <button type="reset" id="cancelButton" class="bg-red-300 hover:bg-red-400 text-gray-800  font-bold py-2 px-4 rounded transition duration-200">
+                <button type="button" id="cancelButton" class="bg-red-300 hover:bg-red-400 text-gray-800  font-bold py-2 px-4 rounded transition duration-200">
                     Cancel
                 </button>
                 <button type="button" id="submitButton" class="bg-violet-500 hover:bg-violet-600 text-white font-bold py-2 px-4 rounded transition duration-200">
@@ -90,7 +90,7 @@
     <div class="bg-white  p-6 rounded-lg shadow-xl w-[450px] h-[600px] flex flex-col items-center justify-center space-y-6">
         <!-- Form Title -->
         <h2 class="text-xl font-semibold text-center text-gray-800 ">Event Form</h2>
-        <p class="text-sm text-center text-gray-600 ">Fill out the details to create a new event</p>
+        <p class="text-sm text-center text-gray-600 ">Fill out the details to Edit the event</p>
 
         <!-- Form Content -->
         <form id="editEventForm" class="w-full flex flex-col space-y-4">
@@ -114,7 +114,7 @@
 
             <!-- Submit Button -->
             <div class="w-full flex gap-4 justify-center">
-                <button type="reset" id="cancelButton" class="bg-red-300 hover:bg-red-400 text-gray-800  font-bold py-2 px-4 rounded transition duration-200">
+                <button type="button" id="cancelButton" class="bg-red-300 hover:bg-red-400 text-gray-800  font-bold py-2 px-4 rounded transition duration-200">
                     Cancel
                 </button>
                 <button type="button" id="submitButton" class="bg-violet-500 hover:bg-violet-600 text-white font-bold py-2 px-4 rounded transition duration-200">
@@ -165,7 +165,7 @@
   <my-navbar></my-navbar>
 
 <!-- Main Content -->
-<main class="md:ml-72 h-screen w-full p-4 bg-gray-100  text-gray-900 ">
+<main class="md:ml-72 h-screen w-full p-4 bg-gray-100  text-gray-900 py-16">
     <h1 class="text-5xl font-bold">Event Manager</h1>
     <div id="addEvent" class="w-full h-16 justify-between flex flex-row items-center pl-12 pr-12">
         <p>Total Events <span id="total_Events" class="bg-blue-300 dark:bg-blue-500">-</span></p>

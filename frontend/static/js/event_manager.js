@@ -8,6 +8,7 @@ const table_body = document.getElementById("table_body");
 const formComponent = document.getElementById("formComponent");
 const editformComponent = document.getElementById("editformComponent"); // Fixed duplicate ID
 const eventForm = document.getElementById("eventForm");
+const cancelButton = document.getElementById("cancelButton");
 
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -149,3 +150,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         formComponent.classList.remove("hidden");
     });
 });
+
+cancelButton.addEventListener("click", () => {
+    formComponent.classList.add("hidden");
+    
+})

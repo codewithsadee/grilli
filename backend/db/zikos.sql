@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS pictures (
     url_link VARCHAR(255) NOT NULL, -- Increased to 255 for longer URLs
     is_on_dash BOOLEAN,
     picture_name VARCHAR(100) NOT NULL
-);
+); 
 
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,

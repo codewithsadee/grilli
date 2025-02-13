@@ -2,21 +2,24 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/landing_page.css">
-    <script src="/static/js/tailwind.config.js"> </script>
-    <script type="module" src="/static/js/landing_page.js"> </script>
-   
-    <link rel="preload" as="image" href="./static/images/hero-slider-1.jpg">
-    <link rel="preload" as="image" href="./static/images/hero-slider-2.jpg">
-    <link rel="preload" as="image" href="./static/images/hero-slider-3.jpg">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to Zikos Restaurant, where fine dining meets fresh, locally sourced ingredients. Explore our menu, book reservations, and enjoy our signature dishes in Lusaka, Zambia.">
+  <meta name="keywords" content="Zikos Restaurant, fine dining, Lusaka restaurants, fresh ingredients, signature dishes">
+  <meta property="og:title" content="Zikos Restaurant - Fine Dining in Lusaka">
+  <meta property="og:description" content="Discover the taste of Zikos Restaurant with our locally sourced ingredients and chef-crafted menu.">
+  <meta property="og:image" content="/static/images/hero-slider-1.jpg">
+  <meta property="og:url" content="https://www.zikosrestaurant.com">
+  <meta property="og:type" content="website">
+  <title>Zikos Restaurant - Experience Fine Dining in Lusaka</title>
+  <link rel="stylesheet" href="/static/css/landing_page.css">
+  <script src="/static/js/tailwind.config.js"></script>
+  <script type="module" src="/static/js/landing_page.js"></script>
 </head>
 
 <body>
 
-    <header id="navbar" class="fixed w-full z-50 h-[100px] header-container p-3">
+    <header id="navbar" class="fixed w-full z-4 h-[100px] header-container p-3">
 
 
         <nav class=" flex justify-between items-center py-4">
@@ -24,7 +27,7 @@
             <div>
                 <img class="w-[100px]" src="/static/images/witty.png" alt="">
             </div>
-            <ul class="flex gap-4 text-white">
+            <ul class="hidden md:flex gap-4 text-white">
                 <li>
                     <a href="#home">Home</a>
                 </li>
@@ -39,8 +42,28 @@
                 </li>
 
             </ul>
+            <button id="menuButton" class="md:hidden text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+          </button>
         </nav>
     </header>
+      <!-- Side Navigation Menu -->
+      <div id="sideNav" class="fixed top-0 left-0 h-full w-64 bg-gray-800 text-white transform -translate-x-full transition-transform duration-300 z-50">
+        <button id="closeButton" class="absolute top-4 right-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <ul class="mt-16 space-y-4">
+            <!-- Add your navigation items here -->
+            <li><a href="#home" class="block px-4 py-2">Home</a></li>
+            <li><a href="#menu" class="block px-4 py-2">Menu</a></li>
+            <li><a href="#reservations" class="block px-4 py-2">Reservations</a></li>
+            <li><a href="#contact" class="block px-4 py-2">Contact</a></li>
+        </ul>
+    </div>
     <main>
       <article>
     <section id="home" class="hero h-screen relative bg-black">
@@ -100,6 +123,331 @@
             <!-- Add your video list here -->
         </div>
     </section>
+    
+    <section id="events_loading" class="py-16 hidden">
+      <p class="section-subtitle text-center text-3xl font-bold">Upcoming Events</p>
+      <div class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 ">
+
+           <div class=" event-list-item ">
+
+              <span class="flex flex-row gap-3 text-white event-title">
+                  <div class="h-8 w-8 rounded-full bg-white animate-pulse">
+
+                  </div>
+                
+
+                  <div class="mt-2 text-2xl event-title font-bold bg-white h-4 w-[80%] rounded-full animate-pulse">
+                  
+                  </div>
+
+
+
+
+              </span>
+
+
+              <!--Loading-->
+              <div class="p-2 gap-3 flex flex-col text-white h-full animate-pulse ">
+                  <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                  </p>
+                  <p class="text-lg ml-4">
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+
+                  </p>
+
+              </div>
+
+          </div>
+          <div class=" event-list-item ">
+
+              <span class="flex flex-row gap-3 text-white event-title">
+                  <div class="h-8 w-8 rounded-full bg-white animate-pulse">
+
+                  </div>
+                
+
+                  <div class="mt-2 text-2xl event-title font-bold bg-white h-4 w-[80%] rounded-full animate-pulse">
+                  
+                  </div>
+
+
+
+
+              </span>
+
+
+              <!--Loading-->
+              <div class="p-2 gap-3 flex flex-col text-white h-full animate-pulse ">
+                  <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                  </p>
+                  <p class="text-lg ml-4">
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+
+                  </p>
+
+              </div>
+
+          </div>
+          <div class=" event-list-item ">
+
+              <span class="flex flex-row gap-3 text-white event-title">
+                  <div class="h-8 w-8 rounded-full bg-white animate-pulse">
+
+                  </div>
+                
+
+                  <div class="mt-2 text-2xl event-title font-bold bg-white h-4 w-[80%] rounded-full animate-pulse">
+                  
+                  </div>
+
+
+
+
+              </span>
+
+
+              <!--Loading-->
+              <div class="p-2 gap-3 flex flex-col text-white h-full animate-pulse ">
+                  <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                  </p>
+                  <p class="text-lg ml-4">
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+
+                  </p>
+
+              </div>
+
+          </div>
+          <div class=" event-list-item ">
+
+              <span class="flex flex-row gap-3 text-white event-title">
+                  <div class="h-8 w-8 rounded-full bg-white animate-pulse">
+
+                  </div>
+                
+
+                  <div class="mt-2 text-2xl event-title font-bold bg-white h-4 w-[80%] rounded-full animate-pulse">
+                  
+                  </div>
+
+
+
+
+              </span>
+
+
+              <!--Loading-->
+              <div class="p-2 gap-3 flex flex-col text-white h-full animate-pulse ">
+                  <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                  </p>
+                  <p class="text-lg ml-4">
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+
+                  </p>
+
+              </div>
+
+          </div>
+          <div class=" event-list-item ">
+
+              <span class="flex flex-row gap-3 text-white event-title">
+                  <div class="h-8 w-8 rounded-full bg-white animate-pulse">
+
+                  </div>
+                
+
+                  <div class="mt-2 text-2xl event-title font-bold bg-white h-4 w-[80%] rounded-full animate-pulse">
+                  
+                  </div>
+
+
+
+
+              </span>
+
+
+              <!--Loading-->
+              <div class="p-2 gap-3 flex flex-col text-white h-full animate-pulse ">
+                  <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                  </p>
+                  <p class="text-lg ml-4">
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+
+                  </p>
+
+              </div>
+
+          </div>
+          <div class=" event-list-item ">
+
+              <span class="flex flex-row gap-3 text-white event-title">
+                  <div class="h-8 w-8 rounded-full bg-white animate-pulse">
+
+                  </div>
+                
+
+                  <div class="mt-2 text-2xl event-title font-bold bg-white h-4 w-[80%] rounded-full animate-pulse">
+                  
+                  </div>
+
+
+
+
+              </span>
+
+
+              <!--Loading-->
+              <div class="p-2 gap-3 flex flex-col text-white h-full animate-pulse ">
+                  <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                  </p>
+                  <p class="text-lg ml-4">
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+
+                  </p>
+
+              </div>
+
+          </div>
+          <div class=" event-list-item animate-pulse">
+
+              <span class="flex flex-row gap-3 text-white event-title">
+                  <div class="h-8 w-8 rounded-full bg-white animate-pulse">
+
+                  </div>
+                
+
+                  <div class="mt-2 text-2xl event-title font-bold bg-white h-4 w-[80%] rounded-full animate-pulse">
+                  
+                  </div>
+
+
+
+
+              </span>
+
+
+              <!--Loading-->
+              <div class="p-2 gap-3 flex flex-col text-white h-full animate-pulse ">
+                  <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                  </p>
+                  <p class="text-lg ml-4">
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+
+                  </p>
+
+              </div>
+
+          </div>
+          <div class=" event-list-item ">
+
+              <span class="flex flex-row gap-3 text-white event-title">
+                  <div class="h-8 w-8 rounded-full bg-white animate-pulse">
+
+                  </div>
+                
+
+                  <div class="mt-2 text-2xl event-title font-bold bg-white h-4 w-[80%] rounded-full animate-pulse">
+                  
+                  </div>
+
+
+
+
+              </span>
+
+
+              <!--Loading-->
+              <div class="p-2 gap-3 flex flex-col text-white h-full animate-pulse ">
+                  <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                  </p>
+                  <p class="text-lg ml-4">
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+                      <p class="mt-2 text-2xl event-title font-bold bg-white h-2 w-[80%] rounded-full animate-pulse">
+                     
+                      </p>
+
+                  </p>
+
+              </div>
+
+          </div>
+
+
+
+      </div>
+
+
+
+  </section>
     <section id="events-section" class="py-16">
         <p class="section-subtitle text-center text-3xl font-bold">Upcoming Events</p>
         <div id="events" class=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 ">  
@@ -192,6 +540,19 @@
 
 </article>
 </main>
+<script>
+  const menuButton = document.getElementById('menuButton');
+  const sideNav = document.getElementById('sideNav');
+  const closeButton = document.getElementById('closeButton');
+
+  menuButton.addEventListener('click', () => {
+      sideNav.classList.remove('-translate-x-full');
+  });
+
+  closeButton.addEventListener('click', () => {
+      sideNav.classList.add('-translate-x-full');
+  });
+</script>
   <script src="/static/js/script.js"></script>
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){

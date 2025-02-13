@@ -61,7 +61,7 @@ class MyNavBar extends HTMLElement {
              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M350-384.67h394l-130.67-174-99.33 130-66-84.66-98 128.66Zm-70 171.34q-27 0-46.83-19.84Q213.33-253 213.33-280v-533.33q0-27 19.84-46.84Q253-880 280-880h533.33q27 0 46.84 19.83Q880-840.33 880-813.33V-280q0 27-19.83 46.83-19.84 19.84-46.84 19.84H280Zm0-66.67h533.33v-533.33H280V-280ZM146.67-80q-27 0-46.84-19.83Q80-119.67 80-146.67v-600h66.67v600h600V-80h-600ZM280-813.33V-280v-533.33Z"/></svg>
             </span>
             <span class="ml-2 text-sm tracking-wide truncate">Picture Manager</span>
-            <span class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-indigo-500 bg-indigo-50 rounded-full">New</span>
+           
           </a>
         </li>
         <li>
@@ -79,36 +79,12 @@ class MyNavBar extends HTMLElement {
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed"><path d="M186.67-80q-27 0-46.84-19.83Q120-119.67 120-146.67v-600q0-27 19.83-46.83 19.84-19.83 46.84-19.83h56.66V-880h70v66.67h333.34V-880h70v66.67h56.66q27 0 46.84 19.83Q840-773.67 840-746.67v600q0 27-19.83 46.84Q800.33-80 773.33-80H186.67Zm0-66.67h586.66v-420H186.67v420Zm0-486.66h586.66v-113.34H186.67v113.34Zm0 0v-113.34 113.34Zm93.33 220V-480h400v66.67H280ZM280-240v-66.67h279.33V-240H280Z"/></svg>
             </span>
             <span class="ml-2 text-sm tracking-wide truncate">Event Manager</span>
-            <span class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-red-500 bg-red-50 rounded-full">1.2k</span>
+           
           </a>
         </li>
-        <li class="px-5">
-          <div class="flex flex-row items-center h-8">
-            <div class="text-sm font-light tracking-wide text-white">Tasks</div>
-          </div>
-        </li>
-        <li>
-          <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-100 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-            <span class="inline-flex justify-center items-center ml-4">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
-            </span>
-            <span class="ml-2 text-sm tracking-wide truncate">Available Tasks</span>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-100 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
-            <span class="inline-flex justify-center items-center ml-4">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-            </span>
-            <span class="ml-2 text-sm tracking-wide truncate">Clients</span>
-            <span class="px-2 py-0.5 ml-auto text-xs font-medium tracking-wide text-green-500 bg-green-50 rounded-full">15</span>
-          </a>
-        </li>
-        <li class="px-5">
-          <div class="flex flex-row items-center h-8">
-            <div class="text-sm font-light tracking-wide text-white">Settings</div>
-          </div>
-        </li>
+      
+       
+       
         <li>
           <a href="/profile_manager" class="relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-100 hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6">
             <span class="inline-flex justify-center items-center ml-4">

@@ -27,7 +27,7 @@ const (
 
 var (
 	// Email validation regex
-	emailRegex = regexp.MustCompile(`^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$`)
+	emailRegex = regexp.MustCompile(`^[A-Za-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,4}$`)
 )
 
 // GetSecretKey retrieves the JWT secret key from environment variable
@@ -46,10 +46,13 @@ func AuthMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
 
 		tokenString, err := c.Cookie("Authorization")
+
 		if err != nil {
-			c.AbortWithStatus(http.StatusUnauthorized)
-			return
+
+			fmt.Println(err.Error())
+
 		}
+
 		if tokenString == "" {
 			// Redirect unauthenticated users to login with the current path as the redirect target
 			target := c.Request.URL.Path

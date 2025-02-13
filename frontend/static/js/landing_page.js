@@ -10,8 +10,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     let video_player_true = document.getElementById("videoplayer");
     const upcoming_events = document.getElementById("events");
     const pictureGrid = document.getElementById("pictureGrid");
+    const events_loading = document.getElementById("events_loading")
 
     pictures_loading.classList.remove("hidden");
+    events_loading.classList.remove("hidden");
+    upcoming_events.classList.add("hidden")
     picture_section.classList.add("hidden");
     // Load the first video
 
@@ -34,7 +37,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             upcoming_events.classList.remove("grid", "grid-cols-1", "sm:grid-cols-2" ,"md:grid-cols-3" ,"gap-3" )
             upcoming_events.classList.add("text-white","text-center", "text-xl")
             upcoming_events.innerText = 'Check again later for Events';
+            events_loading.classList.add("hidden");
         } else {
+            events_loading.classList.add("hidden");
+            upcoming_events.classList.remove("hidden")
             console.log("Event Data:", eventData.events);
             eventData.events.forEach((value) => {
                 console.log("Event:", value);
@@ -82,7 +88,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 listItem.classList.add("list-view-item");
                 listItem.innerHTML = `
                     <img class="box-aspect object-cover" src="${value.thumbnail || 'thumbnail1.jpg'}" alt="Video Thumbnail">
-                    <p class="text-sm text-gray-500">${value.name || 'No description available.'}</p>`;
+                    <p class="text-sm text-center p-4 text-white">${value.name || 'No description available.'}</p>`;
                 listItem.addEventListener("click", () => {
                     alert("clicked");
                     video_player_true.src = `/video/${value.id}`;

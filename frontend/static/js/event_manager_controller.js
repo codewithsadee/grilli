@@ -8,7 +8,7 @@ export async function createEvent(eventData) {
                 "Content-Type": "application/json"  
              
             },
-            body: eventData 
+            body: JSON.stringify(eventData) 
             
         });
 

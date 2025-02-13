@@ -67,7 +67,9 @@ func StartServer(dbportNumber int) error {
 	r.GET("/getVideos", getVideos)
 
 	r.GET("/video/:id", StreamVideoHandler)
+
 	r.DELETE("/video/:id", deleteVideo)
+
 	r.GET("/video_manager", auth.AuthMiddleware(), func(ctx *gin.Context) {
 		ctx.HTML(http.StatusOK, "video_manager.html", nil)
 	})

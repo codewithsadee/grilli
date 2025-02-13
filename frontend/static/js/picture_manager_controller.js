@@ -1,11 +1,7 @@
-
-
-
 export async function uploadPicture(pictureFormData) {
     let data = null;
     let err = null;
-   
-    
+
     try {
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "/pictures");
@@ -30,20 +26,18 @@ export async function uploadPicture(pictureFormData) {
             err = xhr.statusText;
             throw new Error(xhr.statusText);
         };
-        
+
         xhr.send(pictureFormData);
 
         await new Promise((resolve) => {
             xhr.onload = resolve;
         });
-        
-    } catch (error) {
-        
 
+    } catch (error) {
         err = error.toString();
     }
 
-
+    return [data, err];
 }
 
 export async function getPictures() {
