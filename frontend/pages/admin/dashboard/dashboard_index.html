@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- 
+    - google font link
+  -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="/static/js/components/navbar.js"></script>
+  <script type="module" src="/static/js/landing_page.js"></script>
+  <script src="/static/js/dashboard.js"></script>
+  <link rel="stylesheet" href="/static/css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+
+    
+    <script src="http://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'media', // Automatically switch based on system preferences
+        };
+    </script>
+    <title>Dashboard</title>
+    <style>
+        #progressBarFill {
+            width: 0;
+            height: 10px;
+            background-color: #007BFF;
+            transition: width 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="flex flex-row bg-gray-100 ">
+
+    <!-- Loading Component -->
+    <div id="loadingComponent" class="z-50 w-full h-full bg-black fixed opacity-50 flex items-center justify-center hidden">
+        <div class="items-center flex flex-col justify-center h-20 w-20">
+            <div class="h-12 w-2 bg-blue-500 rounded-full animate-spin"></div>
+            <p class="font-bold text-blue-500">Loading ...</p>
+        </div>
+    </div>
+
+   
+    <!-- Sidebar -->
+    <my-navbar></my-navbar>
+
+    <!-- Main Content -->
+     <div class="w-full h-screen flex flex-row">
+
+        <div class="w-full md:pl-72 h-14 bg-white shadow-md fixed profile-section grid grid-cols-2 md:flex md:items-center md:justify-between">
+
+            <button type="button" onclick="toggleSidebar()">
+                <svg class="place-self-start items-center h-full pl-2 md:hidden" xmlns="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#007BFF"><path d="M120-240v-66.67h720V-240H120Zm0-206.67v-66.66h720v66.66H120Zm0-206.66V-720h720v66.67H120Z"/></svg>
+            
+            </button>
+            
+            
+            <div class="hidden md:flex w-full"></div>
+            <button   popoverTarget="popTarget"  class="h-full flex flex-row items-center  place-self-end popover-button gap-2">
+                <p class="" id="username">-</p> <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#000000"><path d="M226-262q59-42.33 121.33-65.5 62.34-23.17 132.67-23.17 70.33 0 133 23.17T734.67-262q41-49.67 59.83-103.67T813.33-480q0-141-96.16-237.17Q621-813.33 480-813.33t-237.17 96.16Q146.67-621 146.67-480q0 60.33 19.16 114.33Q185-311.67 226-262Zm253.88-184.67q-58.21 0-98.05-39.95Q342-526.58 342-584.79t39.96-98.04q39.95-39.84 98.16-39.84 58.21 0 98.05 39.96Q618-642.75 618-584.54t-39.96 98.04q-39.95 39.83-98.16 39.83ZM480.31-80q-82.64 0-155.64-31.5-73-31.5-127.34-85.83Q143-251.67 111.5-324.51T80-480.18q0-82.82 31.5-155.49 31.5-72.66 85.83-127Q251.67-817 324.51-848.5T480.18-880q82.82 0 155.49 31.5 72.66 31.5 127 85.83Q817-708.33 848.5-635.65 880-562.96 880-480.31q0 82.64-31.5 155.64-31.5 73-85.83 127.34Q708.33-143 635.65-111.5 562.96-80 480.31-80Zm-.31-66.67q54.33 0 105-15.83t97.67-52.17q-47-33.66-98-51.5Q533.67-284 480-284t-104.67 17.83q-51 17.84-98 51.5 47 36.34 97.67 52.17 50.67 15.83 105 15.83Zm0-366.66q31.33 0 51.33-20t20-51.34q0-31.33-20-51.33T480-656q-31.33 0-51.33 20t-20 51.33q0 31.34 20 51.34 20 20 51.33 20Zm0-71.34Zm0 369.34Z"/></svg>
+            </button >
+    
+            <div popover id="popTarget" class="popTarget p-2 h-40 shadow-lg">
+                <ul>
+                    <li class="pb-2">
+                       <a href="#">Profile Settings</a> 
+                    </li>
+                    
+                    <li id="logout">
+                        <p>Logout</p>
+                        </li>
+                </ul>
+            </div>
+        </div>
+
+       <!-- Mobile Sidebar -->
+     <div id="mobileSidebar" class="h-full w-full bg-gray-100 md:hidden fixed z-40 p-4 hidden delay-100">
+        <button type="button" onclick="toggleSidebar()">Close</button>
+
+        <nav class="h-full">
+            <ul class="flex flex-col items-center justify-center h-full gap-7 text-2xl">
+                <li><a href="/dashboard_index">Dashboard</a></li>
+                <li><a href="/picture_manager">Picture Manager</a></li>
+                <li><a href="/picture_manager">Picture Manager</a></li>
+                <li><a href="/feedback">Feedback</a></li>
+            </ul>
+        </nav>
+     </div>
+
+        <main class="md:ml-72  h-screen w-full p-4 bg-gray-100 ">
+        
+            <section>
+                <div class="events-grid grid-cols-1 sm:grid-cols-2 py-16">
+
+                    <div class="">
+
+                        <div class="w-[100%]  border-2 h-32 rounded-3xl p-4">
+
+                            <p class="font-light" id="greeting"></p>
+
+                            <p class="text-3xl font-bold" id="usernamegreet">-</p>
+
+                            <a href="/profile_manager" id="viewProfile" >
+                               
+                                  View Profile
+                            </a>
+                        </div>
+
+                        <p class="font-bold text-2xl py-4">Quick Actions</p>
+                        <div class="grid grid-cols-3 md:grid-cols-4 gap-4">
+
+                            <a href="#" class="w-24 h-24 mb-4 bg-gray-500 rounded-full shadow-md transform transition-transform duration-200 hover:scale-105 active:scale-95">
+                                <div class="h-full w-full flex items-center justify-center text-white">
+                                    Add Video
+                                </div>
+                            </a>
+                            <a href="#" class="w-24 h-24 mb-4 bg-blue-500 rounded-full shadow-md transform transition-transform duration-200 hover:scale-105 active:scale-95">
+                                <div class="h-full w-full flex items-center justify-center text-white">
+                                    Add Photo
+                                </div>
+                            </a>
+                            <a href="#" class="w-24 h-24 mb-4 bg-yellow-500 rounded-full shadow-md transform transition-transform duration-200 hover:scale-105 active:scale-95">
+                                <div class="h-full w-full flex items-center justify-center text-white">
+                                    Add Event
+                                </div>
+                            </a>
+                            <a href="#" class="w-24 h-24 mb-4 bg-red-500 rounded-full shadow-md transform transition-transform duration-200 hover:scale-105 active:scale-95">
+                                <div class="h-full w-full flex items-center justify-center text-white">
+                                    Add User
+                                </div>
+                            </a>
+                        
+                        </div>
+
+                    </div>
+
+                    <div class="overflow-y-scroll">
+                        <div class="w-full h-8 flex justify-between pl-2 pr-2 mb-4 ">
+                            <h3 class="font-bold text-2xl pb-6">Todays Events</h3>
+<a class="text-blue-400 hover:text-blue-800 pt-2" href="/event_manager">View All</a>
+                        </div>
+                     
+                        <div class="w-full h-24 mb-4 border-2 border-black  rounded-lg">
+
+                        </div>
+
+                        <div class="w-full h-24 mb-4 border-2 border-black rounded-lg">
+
+                        </div>
+                        <div class="w-full h-24 mb-4 border-2 border-black rounded-lg">
+
+                        </div>
+                        <div class="w-full h-24 mb-4 border-2 border-black rounded-lg">
+
+                        </div>
+                        <div class="w-full h-24 mb-4 border-2 border-black rounded-lg">
+
+                        </div>
+                        <div class="w-full h-24 mb-4 border-2 border-black rounded-lg">
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </section>
+        </main>
+     </div>
+   
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+
+        const date = new Date();
+        let time = date.getHours();
+
+
+        document.getElementById('usernamegreet').innerHTML = localStorage.getItem('userName');
+
+        /**
+         * Checks the current time and updates the page accordingly.
+         * @returns {void}
+         */
+        function checkTime(){
+            if(time < 12){
+                document.getElementById('greeting').innerHTML = "Good Morning";
+            }else if(time < 18){
+                document.getElementById('greeting').innerHTML = "Good Afternoon";
+            }else{
+
+                document.getElementById('greeting').innerHTML = "Good Evening";
+            }
+
+        }
+
+        
+
+
+
+        let sidebarStateOpen = false;
+
+
+        function toggleSidebar(){
+            let sidebar = document.getElementById('mobileSidebar');
+            
+            if(sidebarStateOpen){
+                sidebar.classList.add('hidden');
+                sidebarStateOpen = false;
+            }else{
+                sidebar.classList.remove('hidden');
+                sidebarStateOpen = true;
+            }
+        }
+        checkTime();
+    </script>
+
+</body>
+
+</html>

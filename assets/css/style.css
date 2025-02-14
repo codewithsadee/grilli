@@ -325,7 +325,7 @@ body.nav-active { overflow: hidden; }
 .section-subtitle::after {
   content: url('../images/separator.svg');
   display: block;
-  width: 100px;
+  width: 100px; 
   margin-inline: auto;
   margin-block-start: 5px;
 }
@@ -342,6 +342,12 @@ body.nav-active { overflow: hidden; }
   padding: 12px 45px;
   overflow: hidden;
   z-index: 1;
+}
+
+.text-gold-crayola{
+
+  background-color: var(--gold-crayola);
+  color: var(--gold-crayola);
 }
 
 .btn::before {

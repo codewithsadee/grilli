@@ -166,5 +166,6 @@ window.addEventListener("mousemove", function (event) {
     y = y * Number(parallaxItems[i].dataset.parallaxSpeed);
     parallaxItems[i].style.transform = `translate3d(${x}px, ${y}px, 0px)`;
   }
+  
 
 });
