@@ -789,7 +789,17 @@
               <div class="input-wrapper">
                 <input type="text" name="name" placeholder="Your Name" autocomplete="off" class="input-field">
 
-                <input type="tel" name="phone" placeholder="Phone Number" autocomplete="off" class="input-field">
+                <input 
+                type="tel" 
+                name="phone" 
+                placeholder="Phone Number" 
+                autocomplete="off" 
+                class="input-field"
+                pattern="[0-9+-]+"
+                title="Please enter only numbers and symbols (+, -)"
+                inputmode="numeric"
+                onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode === 43 || event.charCode === 45"
+              > 
               </div>
 
               <div class="input-wrapper">
@@ -1114,7 +1124,7 @@
             Subscribe us & Get <span class="span">25% Off.</span>
           </p>
 
-          <form action="" class="input-wrapper">
+          <!-- <form action="" class="input-wrapper">
             <div class="icon-wrapper">
               <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
 
@@ -1126,6 +1136,21 @@
 
               <span class="text text-2" aria-hidden="true">Subscribe</span>
             </button>
+          </form> -->
+
+          <form action="" class="input-wrapper" id="subscribeForm">
+            <div class="icon-wrapper">
+              <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+              <input type="email" name="email_address" placeholder="Your email" autocomplete="off" class="input-field" id="emailInput" required>
+            </div>
+          
+            <button type="submit" class="btn btn-secondary">
+              <span class="text text-1">Subscribe</span>
+              <span class="text text-2" aria-hidden="true">Subscribe</span>
+            </button>
+
+           <!-- Success Message -->
+            <p id="successMessage" class="success-message" style="display: none;">Successfully Subscribed!</p>
           </form>
 
         </div>
