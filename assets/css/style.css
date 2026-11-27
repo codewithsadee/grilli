@@ -183,7 +183,6 @@ body {
   font-weight: var(--weight-regular);
   line-height: var(--lineHeight-5);
   overflow: hidden;
-  height: 300vh;
 }
 
 body.loaded { overflow: overlay; }
@@ -2140,4 +2139,125 @@ textarea.input-field {
     left: 0;
   }
 
+}
+
+
+
+
+
+/*-----------------------------------*\
+  #BRO RESTAURANT CUSTOM STYLES
+\*-----------------------------------*/
+
+/* Menu Category Tabs */
+.menu-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-block-end: 50px;
+}
+
+.menu-tab-btn {
+  padding: 10px 22px;
+  border: 1px solid var(--white-alpha-20);
+  color: var(--quick-silver);
+  font-size: var(--fontSize-label-2);
+  font-weight: var(--weight-bold);
+  text-transform: uppercase;
+  letter-spacing: var(--letterSpacing-1);
+  transition: var(--transition-1);
+}
+
+.menu-tab-btn:is(:hover, :focus-visible),
+.menu-tab-btn.active {
+  background-color: var(--gold-crayola);
+  border-color: var(--gold-crayola);
+  color: var(--smoky-black-1);
+}
+
+.menu-category {
+  display: none;
+}
+
+.menu-category.active {
+  display: grid;
+  animation: fadeInMenu 400ms ease forwards;
+}
+
+@keyframes fadeInMenu {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ratings Strip in Testimonials */
+.ratings-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-block-start: 28px;
+}
+
+.rating-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background-color: var(--black-alpha-80);
+  border: 1px solid var(--gold-crayola);
+}
+
+.rating-score {
+  color: var(--gold-crayola);
+  font-weight: var(--weight-bold);
+  font-size: var(--fontSize-body-3);
+}
+
+.rating-source {
+  color: var(--white);
+  font-size: var(--fontSize-label-1);
+}
+
+/* Embedded Google Map */
+.map-wrapper {
+  margin-block-start: 30px;
+  border: 1px solid var(--white-alpha-20);
+  overflow: hidden;
+  box-shadow: var(--shadow-1);
+}
+
+.map-wrapper iframe {
+  display: block;
+  width: 100%;
+  filter: grayscale(20%) contrast(1.05);
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 82px;
+  right: 20px;
+  background-color: #25D366;
+  color: var(--white);
+  font-size: 26px;
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-circle);
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow-1);
+  transition: var(--transition-1);
+  z-index: 4;
+}
+
+.whatsapp-float:is(:hover, :focus-visible) {
+  transform: scale(1.08);
+  background-color: #1ebe5d;
 }

@@ -35,6 +35,7 @@ const addEventOnElements = function (elements, eventType, callback) {
 
 const navbar = document.querySelector("[data-navbar]");
 const navTogglers = document.querySelectorAll("[data-nav-toggler]");
+const navLinks = document.querySelectorAll(".navbar-link");
 const overlay = document.querySelector("[data-overlay]");
 
 const toggleNavbar = function () {
@@ -43,7 +44,14 @@ const toggleNavbar = function () {
   document.body.classList.toggle("nav-active");
 }
 
+const closeNavbar = function () {
+  navbar.classList.remove("active");
+  overlay.classList.remove("active");
+  document.body.classList.remove("nav-active");
+}
+
 addEventOnElements(navTogglers, "click", toggleNavbar);
+addEventOnElements(navLinks, "click", closeNavbar);
 
 
 
@@ -150,21 +158,101 @@ window.addEventListener("load", autoSlide);
 
 const parallaxItems = document.querySelectorAll("[data-parallax-item]");
 
-let x, y;
-
 window.addEventListener("mousemove", function (event) {
 
-  x = (event.clientX / window.innerWidth * 10) - 5;
-  y = (event.clientY / window.innerHeight * 10) - 5;
-
-  // reverse the number eg. 20 -> -20, -5 -> 5
-  x = x - (x * 2);
-  y = y - (y * 2);
+  const baseX = -((event.clientX / window.innerWidth * 10) - 5);
+  const baseY = -((event.clientY / window.innerHeight * 10) - 5);
 
   for (let i = 0, len = parallaxItems.length; i < len; i++) {
-    x = x * Number(parallaxItems[i].dataset.parallaxSpeed);
-    y = y * Number(parallaxItems[i].dataset.parallaxSpeed);
+    const speed = Number(parallaxItems[i].dataset.parallaxSpeed);
+    const x = baseX * speed;
+    const y = baseY * speed;
     parallaxItems[i].style.transform = `translate3d(${x}px, ${y}px, 0px)`;
   }
 
 });
+
+
+
+/**
+ * INTERACTIVE MENU CATEGORY TABS
+ */
+
+const menuTabBtns = document.querySelectorAll(".menu-tab-btn");
+const menuCategories = document.querySelectorAll(".menu-category");
+const menuJumpLinks = document.querySelectorAll("[data-menu-jump]");
+
+const activateMenuTab = function (categoryName) {
+  menuTabBtns.forEach(function (btn) {
+    const isMatch = btn.dataset.tab === categoryName;
+    btn.classList.toggle("active", isMatch);
+    btn.setAttribute("aria-selected", isMatch ? "true" : "false");
+  });
+
+  menuCategories.forEach(function (list) {
+    list.classList.toggle("active", list.dataset.category === categoryName);
+  });
+};
+
+menuTabBtns.forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    activateMenuTab(btn.dataset.tab);
+  });
+});
+
+menuJumpLinks.forEach(function (link) {
+  link.addEventListener("click", function () {
+    activateMenuTab(link.dataset.menuJump);
+  });
+});
+
+
+
+/**
+ * WHATSAPP TABLE RESERVATION & UPDATES FORM
+ */
+
+const BRO_WHATSAPP_NUMBER = "94773494750";
+
+const reservationForm = document.getElementById("reservation-form");
+if (reservationForm) {
+  const dateInput = reservationForm.querySelector('input[name="reservation-date"]');
+  if (dateInput) {
+    const today = new Date().toISOString().split("T")[0];
+    dateInput.min = today;
+    dateInput.value = today;
+  }
+
+  reservationForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = reservationForm.querySelector('input[name="name"]').value.trim();
+    const phone = reservationForm.querySelector('input[name="phone"]').value.trim();
+    const persons = reservationForm.querySelector('select[name="person"]').value;
+    const date = reservationForm.querySelector('input[name="reservation-date"]').value;
+    const time = reservationForm.querySelector('select[name="reservation-time"]').value;
+    const message = reservationForm.querySelector('textarea[name="message"]').value.trim();
+
+    const text =
+      `Hello Bro Restaurant! I would like to reserve a table:%0A%0A` +
+      `*Name:* ${encodeURIComponent(name)}%0A` +
+      `*Phone:* ${encodeURIComponent(phone)}%0A` +
+      `*Guests:* ${encodeURIComponent(persons)}%0A` +
+      `*Date:* ${encodeURIComponent(date)}%0A` +
+      `*Time:* ${encodeURIComponent(time)}` +
+      (message ? `%0A*Special Request:* ${encodeURIComponent(message)}` : "");
+
+    window.open(`https://wa.me/${BRO_WHATSAPP_NUMBER}?text=${text}`, "_blank", "noopener");
+  });
+}
+
+const newsletterForm = document.getElementById("newsletter-form");
+if (newsletterForm) {
+  newsletterForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const waNumber = newsletterForm.querySelector('input[name="whatsapp_number"]').value.trim();
+    const text = `Hello Bro Restaurant! Please add my number (${encodeURIComponent(waNumber)}) to your special offers & updates list.`;
+    window.open(`https://wa.me/${BRO_WHATSAPP_NUMBER}?text=${text}`, "_blank", "noopener");
+    newsletterForm.reset();
+  });
+}
